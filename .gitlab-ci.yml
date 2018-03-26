@@ -1,4 +1,4 @@
-image: "ruby:2.4"
+image: "ruby:2.5"
 
 cache:
   paths:
@@ -21,5 +21,4 @@ rails:
   script:
   - rails db:migrate
   - rails db:seed
-  - rails test
 
