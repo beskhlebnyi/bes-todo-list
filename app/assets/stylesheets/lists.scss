@@ -1,3 +1,24 @@
 // Place all the styles related to the Lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;  
+  
+  color: blue;
+}
+
+.list-show{
+  flex-direction: column;
+  color: red;
+}
+
+.list-new {
+  flex-direction: row;
+  color: red;
+}
+
+.list-edit{
+  flex-direction: row;
+  color: red;
+}

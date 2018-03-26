@@ -10,18 +10,18 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    respond_to do |format| 
-      format.js
-    end
+    respond_to(&:js)
   end
 
   # GET /lists/new
   def new
     @list = List.new
+    respond_to(&:js)
   end
 
   # GET /lists/1/edit
   def edit
+    respond_to(&:js)
   end
 
   # POST /lists
@@ -31,7 +31,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to root_path, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
         format.html { render :new }
