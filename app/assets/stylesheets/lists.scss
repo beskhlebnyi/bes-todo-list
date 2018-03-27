@@ -4,12 +4,11 @@
 
 .container {
   display: flex;  
-  
   color: blue;
 }
 
 .list-show{
-  flex-direction: column;
+  flex-direction: row;
   color: red;
 }
 
