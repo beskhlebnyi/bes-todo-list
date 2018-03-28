@@ -46,7 +46,7 @@ class ListsController < ApplicationController
         format.html { redirect_to root_path, remote: true, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
-        format.html { render :update }
+        format.html { redirect_to root_path, notice: "Title can't be blank" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
