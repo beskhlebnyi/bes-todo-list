@@ -1,3 +1,4 @@
+p#notice = notice
 h1 Listing lists
 table
   thead
@@ -10,7 +11,7 @@ table
   tbody
     - @lists.each do |list|
       tr
-        td =  link_to list.title, list, remote: true
+        td = link_to list.title, list, remote: true
         td = 
         td = link_to 'Edit', edit_list_path(list), remote:true
         td = link_to 'Destroy', list, data: { confirm: 'Are you sure?' }, method: :delete
@@ -19,4 +20,3 @@ br
   .list-show
   .list-new
   .list-edit
- 

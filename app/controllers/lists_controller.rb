@@ -29,10 +29,10 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html { render :index, remote: true }
+        format.html { redirect_to root_path, remote: true, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
-        format.html { render :new, remote: true }
+        format.html { redirect_to root_path, notice: "Title can't be blank" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +43,10 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        format.html { render :index, remote: true, notice: 'List was successfully updated.' }
+        format.html { redirect_to root_path, remote: true, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
-        format.html { render :edit }
+        format.html { render :update }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +57,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'List was successfully deleted.' }
       format.json { head :no_content }
     end
   end
