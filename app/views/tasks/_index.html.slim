@@ -7,7 +7,7 @@ table
       th Status
       th
       th 
-      th = link_to 'New Task', new_list_task_path(@list)
+      th = link_to 'New Task', new_list_task_path(@list), remote: true
 
   tbody
     - @tasks.each do |task|

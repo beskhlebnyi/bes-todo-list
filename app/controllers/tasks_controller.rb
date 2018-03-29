@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    respond_to(&:js)
   end
 
   # GET /tasks/1/edit
