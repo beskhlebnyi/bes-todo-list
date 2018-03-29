@@ -1,0 +1,20 @@
+h1 Listing tasks
+
+table
+  thead
+    tr
+      th Content
+      th Status
+      th
+      th 
+      th = link_to 'New Task', new_list_task_path(@list)
+
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = link_to task.content, list_task_path(@list, task)
+        td = task.status
+        td = link_to 'Edit', edit_list_task_path(@list, task) 
+        td = link_to 'Destroy', [@list, task], data: { confirm: 'Are you sure?' }, method: :delete
+
+br

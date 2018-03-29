@@ -1,10 +1,16 @@
 class ListsController < ApplicationController
-  before_action :set_list , only: [:show, :edit, :update, :destroy]
-  before_action :set_lists, only: [:index, :create, :update]
+  before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
 
   # GET /lists
   # GET /lists.json
-  def index; end
+  def index
+    @lists = List.all
+  end
+
+  def list_tasks
+    @tasks = @list.tasks.all
+    respond_to(&:js)
+  end
 
   # GET /lists/1
   # GET /lists/1.json
@@ -66,10 +72,6 @@ class ListsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_list
       @list = List.find(params[:id])
-    end
-
-    def set_lists
-      @lists = List.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
