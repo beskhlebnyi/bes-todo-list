@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    respond_to(&:js)
   end
 
   # POST /tasks
