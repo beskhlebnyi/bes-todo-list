@@ -1,4 +1,5 @@
 p#notice = notice
+h1 Task
 
 p
   strong Content:
@@ -6,10 +7,5 @@ p
 p
   strong Status:
   = @task.status
-p
-  strong List:
-  = @task.list
 
-=> link_to 'Edit', edit_list_task_path(@task)
-'|
 =< link_to 'Back', root_path

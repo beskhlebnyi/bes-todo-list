@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = @list.tasks.find(params[:id])
+    respond_to(&:js)
   end
 
   # GET /tasks/new
