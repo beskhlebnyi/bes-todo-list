@@ -10,7 +10,7 @@ table
   tbody
     - @lists.each do |list|
       tr
-        td = link_to list.title, render_tasks_path(list), remote: true
+        td = link_to list.title, list_tasks_path(list), remote: true
         td = link_to 'Edit', edit_list_path(list), remote:true
         td = link_to 'Destroy', list, data: { confirm: 'Are you sure?' }, method: :delete
 br
@@ -20,7 +20,7 @@ br
   .list-edit
 
 .task-container
-  .list-tasks
+  .tasks-index
   .task-show
   .task-new
   .task-edit
