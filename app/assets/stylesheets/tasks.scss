@@ -1,21 +1,24 @@
-// Place all the styles related to the Lists controller here.
+// Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.list-container {
-  display: flex;  
-  color: blue;
+.task-container{
+  display: flex;
+  color: yellowgreen;
 }
 
-.list-show{
+.tasks-index{
   flex-direction: column;
 }
 
-.list-new {
+.task-show{
   flex-direction: row;
 }
 
-.list-edit{
+.task-new{
   flex-direction: row;
 }
 
+.task-edit{
+  flex-direction: row;
+}

@@ -1,0 +1,11 @@
+p#notice = notice
+h1 Task
+
+p
+  strong Content:
+  = @task.content
+p
+  strong Status:
+  = @task.status
+
+=< link_to 'Back', root_path

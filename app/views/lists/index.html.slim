@@ -5,18 +5,22 @@ table
     tr
       th  Listing lists
       th
-      th
       th 
       th = link_to 'New List', new_list_path, remote: true
   tbody
     - @lists.each do |list|
       tr
-        td = link_to list.title, list, remote: true
-        td = 
+        td = link_to list.title, list_tasks_path(list), remote: true
         td = link_to 'Edit', edit_list_path(list), remote:true
         td = link_to 'Destroy', list, data: { confirm: 'Are you sure?' }, method: :delete
 br
-.container   
+.list-container   
   .list-show
   .list-new
   .list-edit
+
+.task-container
+  .tasks-index
+  .task-show
+  .task-new
+  .task-edit
