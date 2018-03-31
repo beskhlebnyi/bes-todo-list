@@ -4,7 +4,6 @@ RSpec.describe List, type: :model do
   subject{ described_class.new(title: "some title") }
 
   it "valid with valid attributes" do
-    subject.title = "some title"
     expect(subject).to be_valid
   end
 
