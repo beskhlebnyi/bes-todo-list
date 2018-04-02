@@ -24,6 +24,5 @@ RSpec.describe Task, type: :model do
   it "is invalid without content" do
     subject.content = nil
     expect(subject).not_to be_valid
-  end
-
+  end 
 end
