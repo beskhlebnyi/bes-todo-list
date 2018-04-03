@@ -25,4 +25,20 @@ RSpec.describe Task, type: :model do
     subject.content = nil
     expect(subject).not_to be_valid
   end 
+
+  it "does not allow duplicate task names per list" do
+    subject.save
+
+    task = Task.create(
+      content: "Some content",
+      status: false,
+      important: true,
+      list: @list
+    )
+
+    expect(task.errors[:content]).to include("has already been taken")  
+    
+  end
+
+
 end
