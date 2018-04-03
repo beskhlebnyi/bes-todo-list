@@ -11,4 +11,10 @@ RSpec.describe List, type: :model do
     subject.title = nil
     expect(subject).to_not be_valid
   end
+
+  it "not valid with not unique title" do
+    subject.save
+    new_list = List.create(title: "some title")
+    expect(new_list.errors[:title]).to include("has already been taken")
+  end
 end
