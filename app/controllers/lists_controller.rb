@@ -30,7 +30,7 @@ class ListsController < ApplicationController
         format.html { redirect_to root_path, remote: true, notice: "List was successfully created." }
         format.json { render :show, status: :created, location: @list }
       else
-        format.html { redirect_to root_path, notice: "Title can't be blank" }
+        format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +42,7 @@ class ListsController < ApplicationController
         format.html { redirect_to root_path, remote: true, notice: 'List was successfully updated.' }
         format.json { render :show, status: :ok, location: @list }
       else
-        format.html { redirect_to root_path, notice: "Title can't be blank" }
+        format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end

@@ -28,7 +28,7 @@ class TasksController < ApplicationController
         format.html { redirect_to root_path, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { redirect_to root_path, notice: "Content can't be blank" }
+        format.html { redirect_to root_path, notice: "#{@task.errors.full_messages.first}" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
-        format.html { redirect_to root_path, notice: "Content can't be blank" }
+        format.html { redirect_to root_path, notice: "#{@task.errors.full_messages.first}" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
