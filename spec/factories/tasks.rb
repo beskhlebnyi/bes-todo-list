@@ -3,6 +3,9 @@ FactoryBot.define do
     important true
     status true
     sequence(:content) { |n| "Some #{n} Content"}
-    association :list
+
+    trait :with_list do
+      list { create :list }
+    end
   end
 end
