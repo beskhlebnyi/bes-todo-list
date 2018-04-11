@@ -21,4 +21,6 @@ rails:
   script:
   - rails db:migrate
   - rails db:seed
+  - bundle exec rspec
+
 
