@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Lists", type: :feature, js: true do
-  before do
-    create(:list, title: "Some list")
-  end
+  let!(:list) { create(:list, title: "Some list") }
   
   scenario "user create a new list" do
     visit root_path

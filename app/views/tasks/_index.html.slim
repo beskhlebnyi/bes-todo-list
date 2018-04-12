@@ -11,7 +11,7 @@ table
 
   tbody
     - @tasks.each do |task|
-      tr
+      tr id="task-#{task.id}"
         td = link_to task.content, list_task_path(@list, task), remote: true
         td = task.status
         td = task.important
