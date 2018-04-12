@@ -19,6 +19,7 @@ RSpec.feature "Lists", type: :feature, js: true do
   scenario "user show list of tasks" do
     visit root_path
     click_link "Some list"
+    
     expect(page).to have_content "Listing tasks"
   end
 
@@ -28,6 +29,8 @@ RSpec.feature "Lists", type: :feature, js: true do
       click_link "Destroy"
       visit root_path
     }.to change(List.all, :count).by(-1)
+
+    expect(page).not_to have_content(list.title)
   end
 
   scenario "user update a list" do
@@ -35,7 +38,8 @@ RSpec.feature "Lists", type: :feature, js: true do
     click_link "Edit"
     fill_in "Title", with: "Edited list"
     click_button "Update List"
-    visit root_path
+    
+    expect(page).to have_content "List was successfully updated."
     expect(page).to have_content "Edited list"
   end
 end
