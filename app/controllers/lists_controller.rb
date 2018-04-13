@@ -1,8 +1,19 @@
 class ListsController < ApplicationController
   before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
 
+
+  def main_page
+    @lists = List.all
+    
+    respond_to do |format|
+      format.html
+      # format.js
+    end
+  end
+
   def index
     @lists = List.all
+    respond_to(&:js)
   end
 
   def list_tasks

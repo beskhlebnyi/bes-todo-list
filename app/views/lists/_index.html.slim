@@ -1,4 +1,4 @@
-p#notice = notice
+
 h1 Listing lists
 table
   thead
@@ -11,16 +11,5 @@ table
     - @lists.each do |list|
       tr id="list-#{list.id}"
         td = link_to list.title, list_tasks_path(list), remote: true
-        td = link_to 'Edit', edit_list_path(list), remote:true
+        td = link_to 'Edit', edit_list_path(list), remote: true
         td = link_to 'Destroy', list, data: { confirm: 'Are you sure?' }, method: :delete
-br
-.list-container   
-  .list-show
-  .list-new
-  .list-edit
-
-.task-container
-  .tasks-index
-  .task-show
-  .task-new
-  .task-edit
