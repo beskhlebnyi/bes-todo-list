@@ -1,1 +1,2 @@
-$('.table-body').add(".some-list").append('<%= j render 'create', list: @list %>')
+$('.table-body').add(".some-list-<%= @list.id %>").append('<%= j render 'create', list: @list %>');
+$("#list-<%= @list.id %>").effect('highlight', { color: 'green' }, 1500);
