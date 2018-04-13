@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
-  root to: 'lists#index'
+  root to: 'lists#main_page'
 end
