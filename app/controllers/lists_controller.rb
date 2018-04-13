@@ -36,11 +36,12 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         # format.html { redirect_to root_path, remote: true, notice: "List was successfully created." }
-        format.js { render 'list_index.js.erb' }
+        # format.js { render 'list_index.js.erb' }
+        format.js
         format.json { render :show, status: :created, location: @list }
       else
         # format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
-        format.js { render 'list_index.js.erb' }
+        format.js  { render 'list_index.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
