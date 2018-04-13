@@ -1,18 +1,13 @@
 class ListsController < ApplicationController
   before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
+  before_action :set_lists, only: [:main_page, :index, :destroy]
 
 
   def main_page
-    @lists = List.all
-    
-    respond_to do |format|
-      format.html
-      # format.js
-    end
+    respond_to(&:html)
   end
 
   def index
-    @lists = List.all
     respond_to(&:js)
   end
 
@@ -62,7 +57,8 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'List was successfully deleted.' }
+      # format.html { redirect_to root_path, notice: 'List was successfully deleted.' }
+      format.js
       format.json { head :no_content }
     end
   end
@@ -70,6 +66,10 @@ class ListsController < ApplicationController
   private
     def set_list
       @list = List.find(params[:id])
+    end
+
+    def set_lists
+      @lists = List.all
     end
 
     def list_params
