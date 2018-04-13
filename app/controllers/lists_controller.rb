@@ -51,11 +51,11 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.update(list_params)
         # format.html { redirect_to root_path, remote: true, notice: 'List was successfully updated.' }
-        format.js # { render 'list_index.js.erb' }
+        format.js
         format.json { render :show, status: :ok, location: @list }
       else
         # format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
-        format.js { render 'list_index.js.erb' }
+        format.js { render 'notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
