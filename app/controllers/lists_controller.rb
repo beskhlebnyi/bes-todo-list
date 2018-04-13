@@ -65,7 +65,7 @@ class ListsController < ApplicationController
     @list.destroy
     respond_to do |format|
       # format.html { redirect_to root_path, notice: 'List was successfully deleted.' }
-      format.js { render 'list_index.js.erb' }
+      format.js # { render 'list_index.js.erb' }
       format.json { head :no_content }
     end
   end
