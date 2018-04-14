@@ -1,0 +1,2 @@
+$('.task-table-body').add(".some-task-<%= @task.id %>").append('<%= j render 'create', task: @task %>');
+$("#task-<%= @task.id %>").effect('highlight', { color: 'green' }, 1500);

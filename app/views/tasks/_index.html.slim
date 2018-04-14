@@ -1,23 +1,10 @@
 h1 Listing tasks
 
+= link_to 'New Task', new_list_task_path(@list), remote: true
+
 table
-  thead
-    tr
-      th Content
-      th Status
-      th Important
-      th 
-      th = link_to 'New Task', new_list_task_path(@list), remote: true
-
-  tbody
+  tbody class='task-table-body'
     - @tasks.each do |task|
-      tr id="task-#{task.id}"
-        td = link_to task.content, list_task_path(@list, task), remote: true
-        td = task.status
-        td = task.important
-        td = link_to 'Edit', edit_list_task_path(@list, task), remote: true
-        td = link_to 'Destroy', [@list, task], data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-= link_to 'Back', root_path
+      = render 'create', task: task
+    .created-task
 
