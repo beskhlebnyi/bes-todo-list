@@ -1,11 +1,4 @@
-= form_for [@list, @task] do |f|
-  - if @task.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      ul
-        - @task.errors.full_messages.each do |message|
-          li = message
-
+= form_for [@list, @task], remote: true do |f|
   .field
     = f.label :content
     = f.text_field :content
