@@ -41,7 +41,7 @@ class ListsController < ApplicationController
         format.json { render :show, status: :created, location: @list }
       else
         # format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
-        format.js  { render 'list_index.js.erb' }
+        format.js  { render 'notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
