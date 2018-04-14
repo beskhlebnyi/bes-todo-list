@@ -7,18 +7,10 @@
   color: yellowgreen;
 }
 
-.tasks-index{
-  flex-direction: column;
+.task-form{
+  flex-direction: row;
 }
 
 .task-show{
-  flex-direction: row;
-}
-
-.task-new{
-  flex-direction: row;
-}
-
-.task-edit{
-  flex-direction: row;
+  color: aqua;
 }
