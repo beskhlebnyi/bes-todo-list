@@ -1,9 +1,11 @@
 class ListsController < ApplicationController
   before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
   before_action :set_lists, only: [:main_page, :index, :create, :update, :destroy]
-
+  before_action :authenticate_user!
 
   def main_page
+    # TODO remove console before push
+    console
     respond_to(&:html)
   end
 
@@ -32,7 +34,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
     respond_to do |format|
       if @list.save
         # format.html { redirect_to root_path, remote: true, notice: "List was successfully created." }
@@ -72,14 +74,14 @@ class ListsController < ApplicationController
 
   private
     def set_list
-      @list = List.find(params[:id])
+      @list = current_user.lists.find(params[:id])
     end
 
     def set_lists
-      @lists = List.all
+      @lists = current_user.lists.all
     end
 
     def list_params
-      params.require(:list).permit(:title)
+      params.require(:list).permit(:title, :user_id)
     end
 end
