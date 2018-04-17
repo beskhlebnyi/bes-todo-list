@@ -13,8 +13,8 @@ RSpec.describe List, type: :model do
   end
 
   it "is invalid with a duplicate title" do
-    create(:list, title: "some title")
-    list = build(:list, title: "some title")
+    old_list = create(:list)
+    list = build(:list, title: old_list.title, user: old_list.user)
     list.valid?
     expect(list.errors[:title]).to include("has already been taken")
   end

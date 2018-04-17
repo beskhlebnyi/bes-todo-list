@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller, js: true do
-  let(:some_list) { create(:list) }
+  let(:user) { create(:user) }
+  let(:some_list) { create(:list, user: user) }
+
+  before do
+    sign_in user
+  end
 
   describe "#create" do
     it "creates new task" do

@@ -5,8 +5,6 @@ class ListsController < ApplicationController
   
 
   def main_page
-    # TODO remove console before push
-    console
     respond_to(&:html)
   end
 

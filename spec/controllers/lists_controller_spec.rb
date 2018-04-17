@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ListsController, type: :controller, js: true do
-  let(:new_list) { create(:list) }
+  let(:list) { create(:list) }
+
+  before do
+    sign_in list.user
+  end
 
   describe "#index" do
     it "responds successfully" do
@@ -27,14 +31,15 @@ RSpec.describe ListsController, type: :controller, js: true do
   describe "#update" do
     it "updates a list" do
       list_params = attributes_for(:list, title: "Some new title")
-      post :update, params: { id: new_list.id, list: list_params  }, xhr: true
-      expect(new_list.reload.title).to eq "Some new title"
+      post :update, params: { id: list.id, list: list_params  }, xhr: true
+      expect(list.reload.title).to eq "Some new title"
     end
   end
 
   describe "#delete" do
     it "deletes a list" do
-      some_list = create(:list)
+      some_list = create(:list, user: list.user)
+      
       expect {
         delete :destroy, params: { id: some_list.id }, xhr: true
       }.to change(List.all, :count).by(-1)

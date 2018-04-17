@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Lists", type: :feature, js: true do
   let!(:list) { create(:list, title: "Some list") }
+
+  before do
+    sign_in list.user
+  end
   
   scenario "user create a new list" do
     visit root_path
@@ -52,7 +56,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
   context "with same title" do
     scenario "user can't create new list" do
-      create(:list, title: "same title")
+      create(:list, title: "same title", user: list.user)
       visit root_path
 
       expect{
@@ -67,7 +71,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
     scenario "user can't update list" do
       old_title = list.title
-      create(:list, title: "same title")
+      create(:list, title: "same title", user: list.user)
       visit root_path
 
       within "#list-#{list.id}" do
@@ -93,10 +97,13 @@ RSpec.feature "Lists", type: :feature, js: true do
 
   scenario "user delete a list" do
     visit root_path
-    expect{
+
+    expect {
       click_link "Destroy"
       visit root_path
     }.to change(List.all, :count).by(-1)
+
+    visit root_path
 
     expect(page).not_to have_content(list.title)
   end

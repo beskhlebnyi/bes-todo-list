@@ -30,7 +30,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
-  gem "capybara-webkit"
+  gem 'capybara-webkit'
+  gem 'ffaker'
 end
 
 group :development do
