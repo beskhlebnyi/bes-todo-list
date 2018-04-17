@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
   before_action :set_lists, only: [:main_page, :index, :create, :update, :destroy]
-  before_action :authenticate_user!
+  
 
   def main_page
     # TODO remove console before push

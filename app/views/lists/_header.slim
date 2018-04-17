@@ -1,1 +1,7 @@
-= current_user.email
+.container
+  .header
+    = current_user.email
+    
+    = link_to 'Sign out', destroy_user_session_path , method: :delete
+    = link_to 'Change my account', edit_user_registration_path
+
