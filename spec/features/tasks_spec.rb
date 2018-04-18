@@ -141,12 +141,4 @@ RSpec.feature "Tasks", type: :feature, js: true do
     expect(page).not_to have_content(task.content)
   end
 
-  scenario "user show a task" do
-    visit root_path
-    click_link task.list.title
-    click_link task.content
-
-    expect(page).to have_content("Task")
-    expect(page).to have_content("Content:#{task.content}")
-  end
 end
