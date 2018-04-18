@@ -19,8 +19,7 @@ rails:
   services:
     - postgres:alpine
   script:
-  - rails db:migrate
-  - rails db:seed
+  - RAILS_ENV=test bundle exec rails db:create db:schema:load
   - xvfb-run -a bundle exec rspec
 
 

@@ -1,7 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature, js: true do
-  let!(:task) { create(:task, :with_list) }
+  let (:list) { create(:list) }
+  let!(:task) { create(:task, list: list) }
+
+  before do
+    sign_in task.list.user
+  end
 
   scenario "user create a new task" do
     visit root_path
