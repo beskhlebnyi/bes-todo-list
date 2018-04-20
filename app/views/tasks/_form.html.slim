@@ -1,11 +1,16 @@
 = form_for [@list, @task], remote: true do |f|
-  .field
-    = f.label :content
-    = f.text_field :content
-  .field
-    = f.label :status
-    = f.check_box :status
-  .field
-    = f.label :important
-    = f.check_box :important
-  .actions = f.submit
+  form
+    .form-inline
+      .form-group.mx-sm-3.mb-2
+        = f.label :content, class: 'sr-only'
+        = f.text_field :content, class: 'form-control'
+      
+      = f.submit class: 'btn btn-outline-primary mb-2'
+    .form-check.form-check-inline
+        .form-group.form-check
+          = f.label :status, class: 'form-check-label'
+          = f.check_box :status, class: 'form-check-input'
+
+          = f.label :important, class: 'form-check-label'
+          = f.check_box :important, class: 'form-check-input'
+        
