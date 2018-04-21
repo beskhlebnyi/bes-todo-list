@@ -92,7 +92,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     visit root_path
     click_link "Some list"
     
-    expect(page).to have_content "Listing tasks"
+    expect(page).to have_content "Your tasks"
   end
 
   scenario "user delete a list" do
