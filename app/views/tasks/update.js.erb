@@ -1,1 +1,2 @@
+$('.form').fadeOut(10);
 $('#task-<%= @task.id %>').html('<%= j render 'task_string', task: @task %>').effect('highlight', { color: 'yellow' }, 1500);
