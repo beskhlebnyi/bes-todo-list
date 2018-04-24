@@ -1,0 +1,32 @@
+.row.justify-content-md-center
+  h2 Sign up
+.row.justify-content-md-center
+      .row
+        .col
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+
+            .form-group.mx-sm-3.mb-2
+              = f.label :email
+              br
+              = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: 'example@domen.com'
+
+            .form-group.mx-sm-3.mb-2
+              = f.label :password
+              - if @minimum_password_length
+              em = 
+              br
+              = f.password_field :password, autocomplete: 'off'
+              br
+              small :password  
+                em = "#{@minimum_password_length} characters minimum"
+            .form-group.mx-sm-3.mb-2
+              = f.label :password_confirmation
+              br
+              = f.password_field :password_confirmation, autocomplete: 'off'
+
+            .actions.mx-sm-3.mb-2
+              = f.submit 'Sign up', class:'btn btn-outline-primary'
+
+            .mx-sm-3.mb-2
+              = render 'users/shared/links'
