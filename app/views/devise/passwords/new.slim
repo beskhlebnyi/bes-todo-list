@@ -1,0 +1,18 @@
+.row.justify-content-md-center
+  h2 Forgot your password?
+
+.row.justify-content-md-center
+  .row
+    .col
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+
+        .form-group.mx-cm-3.mb-2
+          = f.label :email
+          br
+          = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder:'example@domain.com'
+
+        .actions.mx-cm-3.mb-2
+          = f.submit 'Send instructions', class:'btn btn-outline-primary'
+
+      = render 'users/shared/links'
