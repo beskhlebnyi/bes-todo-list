@@ -1,1 +1,2 @@
+$('.form').fadeOut(10);
 $('#list-<%= @list.id %>').html('<%= j render 'list_string', list: @list %>').effect('highlight', { color: 'yellow' }, 1500);

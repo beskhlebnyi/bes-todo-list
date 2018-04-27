@@ -6,10 +6,7 @@ class TasksController < ApplicationController
     @tasks = @list.tasks.all
   end
 
-  def show
-    @task = @list.tasks.find(params[:id])
-    respond_to(&:js)
-  end
+  def show; end
 
   def new
     @task = Task.new

@@ -22,6 +22,7 @@ gem 'slim-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
 gem 'devise', '~> 4.2'
+gem 'bootstrap'
 
 group :development, :test do  
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]  

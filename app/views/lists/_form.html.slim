@@ -1,5 +1,8 @@
 = form_for @list, remote: true do |f|
-  .field
-    = f.label :title
-    = f.text_field :title
-  .actions = f.submit
+  form
+    .form-inline
+      .form-group.mx-sm-3.mb-2
+        = f.label :title, class: 'sr-only'
+        = f.text_field :title, class: 'form-control', placeholder:'List title'
+      
+      = f.submit class: 'btn btn-outline-primary mb-2'

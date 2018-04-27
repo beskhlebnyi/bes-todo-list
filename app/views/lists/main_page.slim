@@ -2,14 +2,14 @@
 
 .notice
 
-.list-container
-  .list-index
-    = render 'index'
-  .list-form
+.container
+  .row
+    .col-3
+      = render 'index'
+    .col-9
+      .tasks-index
 
-
-.task-container
-  .tasks-index
-  .task-form
-  
-.task-show
+  .row.justify-content-md-center
+    .row
+      .col
+        .form
