@@ -15,6 +15,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       click_link task.list.title
       click_link "New Task"
       fill_in "Content", with: "some task"
+      fill_in "Deadline",	with: "#{Date.tomorrow}" 
       check "Status"
       check "Important"
       click_button "Create Task"
