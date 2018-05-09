@@ -7,6 +7,7 @@
       = f.submit class: 'btn btn-outline-primary mb-2'
     .form-check.form-check-inline
         .form-group.mx-sm-3.mb-2
+          = f.label :deadline, class: 'sr-only'
           = f.date_field :deadline, class: 'form-control', 'data-toggle' => 'tooltip', title: 'Task deadline'
           
         .form-group.form-check
