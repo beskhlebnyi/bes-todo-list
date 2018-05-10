@@ -8,7 +8,7 @@
     .form-check.form-check-inline
         .form-group.mx-sm-3.mb-2
           = f.label :deadline, class: 'sr-only'
-          = f.date_field :deadline, class: 'form-control', 'data-toggle' => 'tooltip', title: 'Task deadline'
+          = f.date_field :deadline, class: 'form-control', title: 'Task deadline'
           
         .form-group.form-check
           = f.check_box :status, class: 'form-check-input'
