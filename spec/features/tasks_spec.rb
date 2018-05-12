@@ -134,7 +134,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     click_link task.list.title
     
     within "#task-#{task.id}" do
-      click_link "Destroy"
+      click_link "Delete"
     end
     
     click_link task.list.title

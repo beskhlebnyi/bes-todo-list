@@ -99,7 +99,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     visit root_path
 
     expect {
-      click_link "Destroy"
+      click_link "Delete"
       visit root_path
     }.to change(List.all, :count).by(-1)
 
