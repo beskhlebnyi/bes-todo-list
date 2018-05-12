@@ -1,10 +1,12 @@
 h1 Your tasks
 
-= link_to 'New Task', new_list_task_path(@list), remote: true, class: 'fa fa-plus'
-
 table
   tbody class='task-table-body'
     - @tasks.each do |task|
       = render 'create', task: task
     .created-task
+
+hr 
+= link_to ' New Task', new_list_task_path(@list), remote: true, class: 'fa fa-plus'
+
 
