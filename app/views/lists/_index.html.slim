@@ -1,7 +1,5 @@
-
 h1 Your lists
-
-= link_to 'New List', new_list_path, remote: true
+hr
 
 table 
   tbody class='table-body'
@@ -9,3 +7,5 @@ table
         = render 'create', list: list
     .created-lists
     
+hr
+= link_to ' New List', new_list_path, remote: true, class:'fa fa-plus'

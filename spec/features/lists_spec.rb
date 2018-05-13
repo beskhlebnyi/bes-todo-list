@@ -41,7 +41,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       visit root_path
 
       within "#list-#{list.id}" do
-        click_link "Edit" 
+        click_on class: 'fa-edit'
       end
 
       fill_in "Title", with: ""
@@ -75,7 +75,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       visit root_path
 
       within "#list-#{list.id}" do
-        click_link "Edit" 
+        click_on class: 'fa-edit'
       end
 
       fill_in "Title", with: "same title"
@@ -99,7 +99,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     visit root_path
 
     expect {
-      click_link "Destroy"
+      click_on class: 'fa-trash'
       visit root_path
     }.to change(List.all, :count).by(-1)
 
@@ -110,7 +110,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
   scenario "user update a list" do
     visit root_path
-    click_link "Edit"
+    click_on class: 'fa-edit'
     fill_in "Title", with: "Edited list"
     click_button "Update List"
 

@@ -53,7 +53,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         
         within "#task-#{task.id}" do
-          click_link "Edit"
+          click_on class: 'fa-edit'
         end
 
         fill_in "Content", with: ""
@@ -96,7 +96,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       click_link task.list.title
       
       within "#task-#{task.id}" do
-        click_link "Edit"
+        click_on class: 'fa-edit'
       end
 
       fill_in "Content", with: "same content"
@@ -117,7 +117,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     click_link task.list.title
     
     within "#task-#{task.id}" do
-      click_link "Edit"
+      click_on class: 'fa-edit'
     end
     
     fill_in "Content", with: "some new task"
@@ -134,7 +134,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     click_link task.list.title
     
     within "#task-#{task.id}" do
-      click_link "Destroy"
+      click_on class: 'fa-trash'
     end
     
     click_link task.list.title
