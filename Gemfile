@@ -25,6 +25,8 @@ gem 'devise', '~> 4.2'
 gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'sidekiq'
+gem 'letter_opener'
+gem 'sidekiq-scheduler'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
