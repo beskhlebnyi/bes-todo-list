@@ -24,6 +24,7 @@ gem 'jquery-ui-rails'
 gem 'devise', '~> 4.2'
 gem 'bootstrap'
 gem 'font-awesome-rails'
+gem 'sidekiq'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
