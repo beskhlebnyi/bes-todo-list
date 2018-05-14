@@ -1,2 +1,4 @@
 h1 
-  = "Hello #{@user.email}!"
+  = "Hello #{@task.list.user.email}."
+  = "Your task \"#{@task.content}\" having a deadline!"
+  = "Planned on - #{@task.deadline}."

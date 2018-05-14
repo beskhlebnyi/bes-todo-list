@@ -1,7 +1,11 @@
 class SendRemindMailJob < ApplicationJob
   queue_as :default
 
-  def perform(user_id)
-    RemindLetterMailer.remind_email(user_id).deliver_now
+  def perform
+    Task.all.each do |task|
+      if task.deadline_soon?
+        RemindLetterMailer.remind_email(task.id).deliver_now
+      end
+    end
   end
 end
