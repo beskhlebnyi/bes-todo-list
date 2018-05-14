@@ -1,0 +1,4 @@
+:schedule:
+  send_remind_mail:
+    every: '20m'
+    class: SendRemindMailJob
