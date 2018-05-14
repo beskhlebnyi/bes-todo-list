@@ -25,6 +25,7 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    SendRemindMailJob.perform_later(current_user.id)
     respond_to(&:js)
   end
 
