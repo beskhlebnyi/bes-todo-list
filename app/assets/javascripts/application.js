@@ -18,3 +18,5 @@
 //= require jquery
 //= require jquery-ui
 //= require datetimepicker
+//= require detect_timezone
+//= require jquery.detect_timezone 
