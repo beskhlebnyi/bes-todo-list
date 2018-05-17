@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_list
+  before_action :set_client_timezone
 
   def index
     @tasks = @list.tasks.all
@@ -57,6 +58,21 @@ class TasksController < ApplicationController
   end
 
   private
+    def set_client_timezone
+      
+      # TODO
+      # uncomment if server not on localhost
+      # loc = request.location
+      # @timezone = Timezone.lookup(loc.latitude, loc.longitude).name
+
+      # TODO
+      # remove next lines if server not on localhost
+      latitude = 66
+      longitude = 70
+      @timezone = Timezone.lookup(latitude, longitude).name
+
+    end
+
     def set_task
       @task = Task.find(params[:id])
     end
