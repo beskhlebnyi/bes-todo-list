@@ -63,12 +63,12 @@ class TasksController < ApplicationController
       # TODO
       # uncomment if server not on localhost
       # loc = request.location
-      # @timezone = Timezone.lookup(loc.latitude, loc.longitude).name
+      # @client_timezone = Timezone.lookup(loc.latitude, loc.longitude).name
 
       # TODO
       # remove next lines if server not on localhost
-      latitude = 66
-      longitude = 70
+      latitude = 50
+      longitude = 30
       @client_timezone = Timezone.lookup(latitude, longitude).name
     end
 
