@@ -3,6 +3,7 @@ FactoryBot.define do
     important true
     status true
     deadline Date.tomorrow
+    timezone 'Kamchatka'
     sequence(:content) { |n| "Some #{n} Content"}
 
     trait :with_list do
