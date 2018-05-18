@@ -5,6 +5,10 @@ class Task < ApplicationRecord
   def deadline_soon?
     self.deadline ? self.deadline >= DateTime.now - 2.hours && self.important : false
   end
+
+  def client_deadline
+      
+  end
 end
 
 ##NOTE
