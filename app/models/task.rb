@@ -3,6 +3,19 @@ class Task < ApplicationRecord
   validates  :content, presence: true, uniqueness: { scope: :list_id }
 
   def deadline_soon?
-    self.deadline ? self.deadline <= DateTime.now - 2.hours && self.important : false
+    if self.deadline && self.important
+      task_deadline = self.deadline - self.deadline.in_time_zone(self.timezone).utc_offset
+      task_deadline <= Time.current.utc + 2.hours
+    else
+      false
+    end
+  end
+
+  def client_deadline
+    self.deadline.in_time_zone(self.timezone)
   end
 end
+
+##NOTE
+## get the timezone offset in hours:
+## Task.last.deadline.strftime('%z')[0..2].to_i 

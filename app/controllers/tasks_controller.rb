@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_list
+  before_action :set_client_timezone, only: [:create, :update]
 
   def index
     @tasks = @list.tasks.all
@@ -19,7 +20,7 @@ class TasksController < ApplicationController
 
   def create
     @task = @list.tasks.new(task_params)
-
+    @task.timezone = @client_timezone
     respond_to do |format|  
       if @task.save
         # format.html { redirect_to root_path, notice: 'Task was successfully created.' }
@@ -57,6 +58,15 @@ class TasksController < ApplicationController
   end
 
   private
+    def set_client_timezone
+      loc = request.location
+      lat, lng = loc.latitude, loc.longitude 
+      lat = 50 if lat == 0
+      lng = 30 if lng == 0
+      
+      @client_timezone = Timezone.lookup(lat, lng).name
+    end
+
     def set_task
       @task = Task.find(params[:id])
     end

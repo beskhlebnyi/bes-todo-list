@@ -27,6 +27,8 @@ gem 'font-awesome-rails'
 gem 'sidekiq'
 gem 'letter_opener'
 gem 'sidekiq-scheduler'
+gem 'geocoder'
+gem 'timezone'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
