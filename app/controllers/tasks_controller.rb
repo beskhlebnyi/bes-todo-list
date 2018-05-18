@@ -35,8 +35,10 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task.assign_attributes(task_params)
+    @task.timezone = @client_timezone
     respond_to do |format|
-      if @task.update(task_params)
+      if @task.save
         # format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.js
         format.json { render :show, status: :ok, location: @task }

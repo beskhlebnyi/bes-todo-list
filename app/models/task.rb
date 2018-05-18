@@ -4,15 +4,21 @@ class Task < ApplicationRecord
 
   def deadline_soon?
     if self.deadline && self.important
-      task_deadline = self.deadline - self.deadline.in_time_zone(self.timezone).utc_offset
+      task_deadline = utc_client_deadline
       task_deadline <= Time.current.utc + 2.hours
     else
       false
     end
   end
 
-  def client_deadline
-    self.deadline.in_time_zone(self.timezone)
+  def client_deadline(client_timezone)
+    self.deadline + utc_client_deadline.in_time_zone(client_timezone).utc_offset
+  end
+
+  private
+
+  def utc_client_deadline
+    self.deadline - self.deadline.in_time_zone(self.timezone).utc_offset
   end
 end
 
