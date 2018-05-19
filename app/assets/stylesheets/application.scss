@@ -2,6 +2,23 @@
 @import "bootstrap";
 @import "datetimepicker";
 @import "font-awesome";
+
+$dark-blue: #003d60;
+$light-blue: #00aab7;
+$gray: #b8ccc6;
+$white: #f1ece9;
+$cream: #f9e3be;
+
+a:link {
+  color: rgb(23, 51, 68);
+  &:hover{
+    text-decoration: none;
+    background-color: transparent;
+    text-shadow: #333 2px 2px 2px;
+    color: white;
+  }
+}
+
 .notice {
   position: fixed;
   right: 25px; 
