@@ -36,13 +36,11 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     respond_to do |format|
       if @list.save
-        # format.html { redirect_to root_path, remote: true, notice: "List was successfully created." }
-        # format.js { render 'list_index.js.erb' }
         format.js
         format.json { render :show, status: :created, location: @list }
       else
-        # format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
-        format.js  { render 'notice.js.erb' }
+        @notice = get_error(@list)
+        format.js { render 'shared/notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
@@ -51,11 +49,11 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        # format.html { redirect_to root_path, remote: true, notice: 'List was successfully updated.' }
         format.js
         format.json { render :show, status: :ok, location: @list }
       else
-        # format.html { redirect_to root_path, notice: "#{@list.errors.full_messages.first}" }
+        @notice = get_error(@list)
+        format.js { render 'shared/notice.js.erb' }
         format.js { render 'notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end

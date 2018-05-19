@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_list
   before_action :set_client_timezone, only: [:create, :update]
+  
+  rescue_from Timezone::Error::GeoNames, with: :timezone_connection_problems
 
   def index
     @tasks = @list.tasks.all
@@ -23,12 +25,11 @@ class TasksController < ApplicationController
     @task.timezone = @client_timezone
     respond_to do |format|  
       if @task.save
-        # format.html { redirect_to root_path, notice: 'Task was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @task }
       else
-        # format.html { redirect_to root_path, notice: "#{@task.errors.full_messages.first}" }
-        format.js { render 'notice.js.erb' }
+        @notice = get_error(@task)
+        format.js { render 'shared/notice.js.erb' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -39,12 +40,11 @@ class TasksController < ApplicationController
     @task.timezone = @client_timezone
     respond_to do |format|
       if @task.save
-        # format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.js
         format.json { render :show, status: :ok, location: @task }
       else
-        # format.html { redirect_to root_path, notice: "#{@task.errors.full_messages.first}" }
-        format.js { render 'notice.js.erb' }
+        @notice = get_error(@task)
+        format.js { render 'shared/notice.js.erb' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -79,5 +79,12 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:content, :status, :important, :deadline, :list_id)
+    end
+
+    def timezone_connection_problems
+      @notice = "We have some problems with connecton, please try again later."
+      respond_to do |format| 
+        format.js { render 'shared/notice.js.erb' }
+      end
     end
 end

@@ -1,0 +1,4 @@
+$('.notice').css({ display: 'block' });
+$('.notice').html('<%= j render 'notice', notice: @notice %>');
+
+setTimeout(function() { $('.notice').fadeOut(1000) }, 2000);
