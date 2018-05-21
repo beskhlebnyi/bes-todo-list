@@ -29,6 +29,7 @@ gem 'letter_opener'
 gem 'sidekiq-scheduler'
 gem 'geocoder'
 gem 'timezone'
+gem 'figaro'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
