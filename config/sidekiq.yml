@@ -1,3 +1,4 @@
+:concurrency: 2
 :schedule:
   send_remind_mail:
     every: '20m'
