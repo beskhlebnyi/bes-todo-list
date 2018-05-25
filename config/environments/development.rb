@@ -54,12 +54,12 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.smtp_settings = {
-    :address => "email-smtp.eu-west-1.amazonaws.com",
-    :port => 587,
-    :user_name => ENV["SES_SMTP_USERNAME"] = "AKIAIK7YC5UWBLPCCM6A", #Your SMTP user
-    :password => ENV["SES_SMTP_PASSWORD"] = "AoIem+Y3D1LOBXRu0ahjxeZBZ1GGr/SODJv12MfVIT/G", #Your SMTP password
-    :authentication => :login,
-    :enable_starttls_auto => true
+    address: "email-smtp.eu-west-1.amazonaws.com",
+    port: 587,
+    user_name: ENV["SES_USER_NAME"],
+    password: ENV["SES_PASSWORD"],
+    authentication: :login,
+    enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true
 end
