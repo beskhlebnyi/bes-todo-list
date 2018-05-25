@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -53,6 +53,13 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.smtp_settings = {
+    address: "email-smtp.eu-west-1.amazonaws.com",
+    port: 587,
+    user_name: ENV["SES_USER_NAME"],
+    password: ENV["SES_PASSWORD"],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
   config.action_mailer.perform_deliveries = true
 end

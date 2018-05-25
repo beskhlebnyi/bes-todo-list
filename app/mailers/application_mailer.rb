@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  ##TODO
+  ##change 'from' email address after increase sending limit
+  default from: 'rubydrynash@gmail.com'
   layout 'mailer'
 end
