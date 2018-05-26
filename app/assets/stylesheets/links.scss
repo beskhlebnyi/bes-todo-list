@@ -1,25 +1,28 @@
-$dark-blue: #003d60;
+$dark-blue:  #003d60;
 $light-blue: #00aab7;
-$gray: #b8ccc6;
-$white: #f1ece9;
-$cream: #f9e3be;
+$gray:       #b8ccc6;
+$white:      #f1ece9;
+$cream:      #f9e3be;
 
 a:link {
   color: $dark-blue;
   font-size: 20px;
+  padding-right: 10px;
   
   &:hover{
     text-decoration: none;
     background-color: transparent;
-    text-shadow: $dark-blue 2px 2px 2px;
-    color: $white;
+    text-shadow: $dark-blue 2px 2px 7px;
+    color: $dark-blue;
+  }
+
+  .fa{
+    font-size: 900px;
   }
 
   &:click {
-    text-shadow: #f1ece9 2px 2px 2px;
+    text-shadow: $cream;
   }
 }
 
-.fa {
-  font-size: 300px;
-}
+
