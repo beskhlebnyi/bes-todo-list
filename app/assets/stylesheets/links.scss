@@ -7,7 +7,6 @@ $cream:      #f9e3be;
 a:link {
   color: $dark-blue;
   font-size: 20px;
-  padding-right: 10px;
   
   &:hover{
     text-decoration: none;
@@ -16,13 +15,17 @@ a:link {
     color: $dark-blue;
   }
 
-  .fa{
-    font-size: 900px;
+}
+
+.fa{
+  &.fa-edit{
+    font-size: x-large;
   }
 
-  &:click {
-    text-shadow: $cream;
+  &.fa-trash{
+    font-size: x-large;
   }
 }
+
 
 
