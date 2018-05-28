@@ -1,0 +1,15 @@
+.fa{
+  &.fa-edit{
+    font-size: x-large;
+  }
+
+  &.fa-trash{
+    font-size: x-large;
+    color: red;
+    
+    &:hover{
+      color: red;
+      text-shadow: red 2px 2px 7px;
+    }
+  }
+}
