@@ -1,15 +1,13 @@
-$dark-blue:  #003d60;
 $light-blue: #00aab7;
-$gray:       gray;
-$white:      #f1ece9;
-$cream:      #f9e3be;
+
 .fa{
   &.fa-edit{
     font-size: x-large;
     color: $light-blue;
+    
     &:hover{
-      color: $gray;
-      text-shadow: $gray 2px 2px 7px;
+      color: lightcoral;
+      text-shadow: lightcoral 2px 2px 7px;
     }
   }
 
