@@ -1,13 +1,11 @@
-$light-blue: #00aab7;
-
 .fa{
   &.fa-edit{
     font-size: x-large;
     color: $light-blue;
     
     &:hover{
-      color: lightcoral;
-      text-shadow: lightcoral 2px 2px 7px;
+      color: $light-orange;
+      text-shadow: $light-orange 2px 2px 7px;
     }
   }
 
@@ -16,8 +14,8 @@ $light-blue: #00aab7;
     color: $light-blue;
     
     &:hover{
-      color: red;
-      text-shadow: red 2px 2px 7px;
+      color: $dark-orange;
+      text-shadow: $dark-orange 2px 2px 7px;
     }
   }
 }

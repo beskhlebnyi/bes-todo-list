@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "datetimepicker";
 @import "font-awesome";
+@import "variables";
 
 .notice {
   position: fixed;
@@ -9,3 +10,17 @@
   bottom: 10px;
   padding: 10px;
  }
+
+body{
+  background: linear-gradient(to left, #d3cce3, #e9e4f0); 
+
+  h1{
+    color:$dark-blue;
+  }
+}
+
+.navbar.navbar-expand-lg.navbar-light{
+  background: linear-gradient(to left, #e9e4f0, #d3cce3);
+}
+
+
