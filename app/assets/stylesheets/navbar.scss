@@ -1,6 +1,8 @@
 .navbar.navbar-expand-lg.navbar-light{
-  border-radius: 60px 60px;
+  //border-radius: 60px 60px;
   background: $dark-blue;
+  border-bottom-style: groove;
+  border-bottom-color: $dark-blue;
 
   .navbar-brand{
     color: #e9e4f0;
