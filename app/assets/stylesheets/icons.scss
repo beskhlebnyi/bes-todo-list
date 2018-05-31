@@ -1,8 +1,9 @@
 .fa{
+ 
   &.fa-edit{
     font-size: x-large;
-    color: $light-blue;
-    
+    color: $brown;
+
     &:hover{
       color: $light-orange;
     }
@@ -10,8 +11,8 @@
 
   &.fa-trash{
     font-size: x-large;
-    color: $light-blue;
-    
+    color: $brown;
+
     &:hover{
       color: $dark-orange;
     }
