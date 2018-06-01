@@ -1,5 +1,12 @@
+- if task.status
+  td 
+    i.fa.fa-check
+- else
+  td
+    i.fa.fa-times
+
+
 td = task.content
-td = task.status
 td = task.important
 
 - if task.deadline == nil
