@@ -7,11 +7,17 @@
 
 
 td = task.content
-td = task.important
 
-- if task.deadline == nil
+- if task.important
+  td
+    i.fa.fa-bell
+- else
+  td
+  
+- unless task.deadline
   td = 'without deadline'
 - else
   td = task.client_deadline(task.timezone)
+  
 td = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'
 td = link_to '', [@list, task], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
