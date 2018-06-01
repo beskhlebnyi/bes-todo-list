@@ -2,19 +2,19 @@
  
   &.fa-edit{
     font-size: x-large;
-    color: $brown;
+    color: $dark-blue;
 
     &:hover{
-      color: $light-orange;
+      color: $green;
     }
   }
 
   &.fa-trash{
     font-size: x-large;
-    color: $brown;
+    color: $dark-blue;
 
     &:hover{
-      color: $dark-orange;
+      color: $red;
     }
   }
 }
