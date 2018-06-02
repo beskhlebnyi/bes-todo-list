@@ -2,17 +2,12 @@
   td 
     i.fa.fa-check
 - else
-  td
-    i.fa.fa-times
-
-
+  - if task.important
+    td
+      i.fa.fa-bell
+  - else
+    td
 td = task.content
-
-- if task.important
-  td
-    i.fa.fa-bell
-- else
-  td
   
 - unless task.deadline
   td = 'without deadline'
