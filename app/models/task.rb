@@ -15,6 +15,10 @@ class Task < ApplicationRecord
     self.deadline + utc_client_deadline.in_time_zone(client_timezone).utc_offset
   end
 
+  def deadline_argument(arg)
+    self.client_deadline(self.timezone).to_time.strftime(arg)
+  end
+
   private
 
   def utc_client_deadline
