@@ -12,7 +12,10 @@ td = task.content
 - unless task.deadline
   td
 - else
-  td = task.client_deadline(task.timezone).to_time.strftime('%B %e at %l:%M %p')
-  
+  td = task.deadline_argument('%d')
+  td = task.deadline_argument('%b')
+  td = task.deadline_argument('%Y')
+  td = task.deadline_argument('%H:%M')
+
 td = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'
 td = link_to '', [@list, task], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
