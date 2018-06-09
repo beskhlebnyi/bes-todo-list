@@ -17,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
     super
+    console
   end
 
   # PUT /resource
@@ -35,8 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       bypass_sign_in resource, scope: resource_name
       respond_with resource, location: after_update_path_for(resource)
     else
-      @notice = resource.errors.full_messages
-      
+      @notice = resource.errors.full_messages.first
       respond_to do |format|
         format.js { render 'shared/notice.js.erb' }
       end
