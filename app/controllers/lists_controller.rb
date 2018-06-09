@@ -54,7 +54,6 @@ class ListsController < ApplicationController
       else
         @notice = get_error(@list)
         format.js { render 'shared/notice.js.erb' }
-        format.js { render 'notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
