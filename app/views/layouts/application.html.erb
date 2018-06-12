@@ -12,14 +12,17 @@
     <div class='flash-notices'>
       
       <% if flash[:notice].present? %>
-        <p><%= flash[:notice] %></p>
+        <div class='alert alert-success' role='alert'>  
+          <p><%= flash[:notice] %></p>
+        </div>
       <% end %>
+      
 
-      <div class="alert alert-warning fade show" role="alert">
-        <% if flash[:alert].present? %>
+      <% if flash[:alert].present? %>
+        <div class='alert alert-warning' role='alert'>
           <p><%= flash[:alert] %></p>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     
     <%= yield %>
