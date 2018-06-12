@@ -11,7 +11,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    build_resource(sign_up_params)
+
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      else
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+      end
+    else
+      @notice = resource.errors.full_messages.first
+      respond_to do |format|
+        format.js { render 'shared/notice.js.erb' }
+      end
+
+      clean_up_passwords resource
+      set_minimum_password_length
+      # TODO: Check respond_with functonal
+      # respond_with resource  end   
+    end
   end
 
   # GET /resource/edit
@@ -21,8 +45,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
-  end
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      if is_flashing_format?
+        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+          :update_needs_confirmation : :updated
+        set_flash_message :notice, flash_key
+      end
+      bypass_sign_in resource, scope: resource_name
+      respond_with resource, location: after_update_path_for(resource)
+    else
+      @notice = resource.errors.full_messages.first
+      respond_to do |format|
+        format.js { render 'shared/notice.js.erb' }
+      end
+      
+      clean_up_passwords resource
+      set_minimum_password_length
+
+      # TODO: Check respond_with functonal
+      # respond_with resource  
+    end
+end
 
   # DELETE /resource
   def destroy

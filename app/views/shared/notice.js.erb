@@ -1,4 +1,4 @@
 $('.notice').css({ display: 'block' });
-$('.notice').html('<%= j render 'notice', notice: @notice %>');
+$('.notice').html('<%= j render 'shared/notice', notice: @notice %>');
 
 setTimeout(function() { $('.notice').fadeOut(1000) }, 2000);

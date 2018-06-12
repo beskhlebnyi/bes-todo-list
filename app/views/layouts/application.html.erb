@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <div class='flash-notices'>
+      
+      <% if flash[:notice].present? %>
+        <div class='alert alert-success' role='alert'>  
+          <p><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+      
+
+      <% if flash[:alert].present? %>
+        <div class='alert alert-warning' role='alert'>
+          <p><%= flash[:alert] %></p>
+        </div>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
