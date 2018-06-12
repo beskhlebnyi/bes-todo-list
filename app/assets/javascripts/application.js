@@ -18,3 +18,8 @@
 //= require jquery
 //= require jquery-ui
 //= require datetimepicker
+$(document).ready(function() {
+  $(".alert").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
+  });
+});
