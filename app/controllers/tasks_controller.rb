@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   rescue_from Timezone::Error::GeoNames, with: :timezone_connection_problems
 
   def index
-    @tasks = @list.tasks.all
+    @tasks = @list.tasks.order(:status, important: :desc)
   end
 
   def show; end
