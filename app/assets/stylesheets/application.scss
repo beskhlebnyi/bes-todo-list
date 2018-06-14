@@ -4,12 +4,10 @@
 @import "font-awesome";
 @import "variables";
 
-.notice {
-  position: fixed;
-  right: 25px; 
-  bottom: 10px;
-  padding: 10px;
- }
+
+.right-close-button {
+  float: right;
+}
 
 body{
   background: linear-gradient(to right, #efefbb, #d4d3dd);

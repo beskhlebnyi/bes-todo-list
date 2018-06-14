@@ -3,20 +3,18 @@
 .notice
 
 /! Button trigger modal
-button.btn.btn-primary data-target="#exampleModal" data-toggle="modal" type="button" 
-  | Launch demo modal
-/! Modal
-#exampleModal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
+/! button.btn.btn-primary data-target="#exampleModal" data-toggle="modal" type="button" 
+/!  | Launch demo modal
+
+#mainModal.modal.fade aria-hidden="true" aria-labelledby="mainModalLabel" role="dialog" tabindex="-1" 
   .modal-dialog role="document" 
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title Modal title
-        
+        h5#mainModalLabel.modal-title Modal title
+        .right-close-button
+          button.btn.btn-secondary data-dismiss="modal" type="button"  Close
       .modal-body
-        | Hello
-      .modal-footer
-        button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-        button.btn.btn-primary type="button"  Save changes
+        .form
 
 
 .container
@@ -29,5 +27,6 @@ button.btn.btn-primary data-target="#exampleModal" data-toggle="modal" type="but
   .row.justify-content-md-center
     .row
       .col
-        .form
+
+        
 
