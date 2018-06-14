@@ -1,6 +1,6 @@
-$('.form').fadeIn("slow");
+$('#mainModal').modal("show");
+$('.modal-title').html('New task');
 $('.form').html("<%= j (render 'tasks/new') %>");
-
 
 date = new Date();
 

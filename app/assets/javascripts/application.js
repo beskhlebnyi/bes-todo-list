@@ -10,16 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
-//= require jquery_ujs
+//= require jquery
+//= require jquery-ui
+//= require rails-ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require jquery
-//= require jquery-ui
 //= require datetimepicker
 $(document).ready(function() {
   $(".alert").delay(4000).slideUp(200, function() {
     $(this).alert('close');
   });
 });
+
