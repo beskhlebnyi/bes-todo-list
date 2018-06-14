@@ -40,9 +40,9 @@ RSpec.feature "Tasks", type: :feature, js: true do
         check "Important"
         click_button "Create Task"
       }.not_to change(Task.all, :count)
-      
-      click_link task.list.title
 
+      click_button "Close"
+      click_link task.list.title
       # TODO: Uncomment this after notice refactor:
       # expect(page).to have_content("Content can't be blank")
     end
@@ -82,6 +82,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_button "Create Task"
       }.not_to change(Task.all, :count)
       
+      click_button "Close"
       click_link task.list.title
 
       expect(task.content).to include(old_content)
@@ -104,6 +105,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       check "Status"
       check "Important"
       click_button "Update Task"
+      click_button "Close"
       click_link task.list.title
 
       expect(task.content).to include(old_content)
