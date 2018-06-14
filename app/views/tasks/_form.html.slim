@@ -4,7 +4,7 @@
       .form-group.mx-sm-3.mb-2
         = f.label :content, class: 'sr-only'
         = f.text_field :content, class: 'form-control', placeholder: 'Task content' 
-      = f.submit class: 'btn btn-outline-primary mb-2'
+      = f.button "Save", class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
     .form-check.form-check-inline
         .form-group.mx-sm-3.mb-2
           = f.label :deadline, class: 'sr-only'
@@ -19,4 +19,3 @@
           = f.check_box :important, class: 'form-check-input'
           br
           = f.label :important, class: 'form-check-label'
-          
