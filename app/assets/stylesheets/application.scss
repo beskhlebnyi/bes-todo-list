@@ -4,10 +4,12 @@
 @import "font-awesome";
 @import "variables";
 
-
-.right-close-button {
-  float: right;
+// TODO: Set correct settings to center content
+.modal-body {
+  left: 10%;
+  width: 80%;
 }
+
 
 body{
   background: linear-gradient(to right, #efefbb, #d4d3dd);
