@@ -12,12 +12,11 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-
-      within('.modal-content') do
+      find('#mainModal')
+      within('#mainModal') do
         fill_in "Title", with: "some new list"
         click_button "Create List"
       end
-        
       visit root_path
     }.to change(List.all, :count).by(1)
     
@@ -115,9 +114,10 @@ RSpec.feature "Lists", type: :feature, js: true do
   scenario "user update a list" do
     visit root_path
     click_on class: 'fa-edit'
-    fill_in "Title", with: "Edited list"
-    click_button "Update List"
-
+    within('#mainModal') do
+      fill_in "Title", with: "Edited list"
+      click_button "Update List"
+    end
     # TODO: Uncomment this after notice refactor:
     # expect(page).to have_content "List was successfully updated."
     expect(page).to have_content "Edited list"
