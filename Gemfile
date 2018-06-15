@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'ffaker'
   gem 'chromedriver-helper'
+  gem 'capybara-screenshot'
 end
 
 group :development do
