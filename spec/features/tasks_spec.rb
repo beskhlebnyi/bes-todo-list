@@ -18,7 +18,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       fill_in "Deadline",	with: "#{DateTime.tomorrow}"
       check "Status"
       check "Important"
-      click_button "Create Task"
+      click_button "Save"
       sleep 3
       visit root_path
     }.to change(Task.all, :count).by(1)
@@ -38,7 +38,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         fill_in "Content", with: ""
         check "Status"
         check "Important"
-        click_button "Create Task"
+        click_button "Save"
       }.not_to change(Task.all, :count)
 
       click_button "Close"
@@ -60,7 +60,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         fill_in "Content", with: ""
         check "Status"
         check "Important"
-        click_button "Update Task"
+        click_button "Save"
       }.to_not change(Task.all, :count)
       
       # TODO: Uncomment this after notice refactor:
@@ -79,7 +79,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         fill_in "Content", with: task.content
         check "Status"
         check "Important"
-        click_button "Create Task"
+        click_button "Save"
       }.not_to change(Task.all, :count)
       
       click_button "Close"
@@ -104,7 +104,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       fill_in "Content", with: "same content"
       check "Status"
       check "Important"
-      click_button "Update Task"
+      click_button "Save"
       click_button "Close"
       click_link task.list.title
 
@@ -126,7 +126,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     fill_in "Content", with: "some new task"
     check "Status"
     check "Important"
-    click_button "Update Task"
+    click_button "Save"
     click_link task.list.title
     
     expect(page).to have_content("some new task")
