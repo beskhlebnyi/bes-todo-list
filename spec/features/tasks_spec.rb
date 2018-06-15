@@ -14,7 +14,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
     expect {
       click_link task.list.title
       click_link "New Task"
-      sleep 3
       fill_in "Content", with: "some task"
       fill_in "Deadline",	with: "#{DateTime.tomorrow}"
       check "Status"
@@ -36,7 +35,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
       expect {
         click_link task.list.title
         click_link "New Task"
-        sleep 3
         fill_in "Content", with: ""
         check "Status"
         check "Important"
@@ -78,7 +76,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
       expect {
         click_link task.list.title
         click_link "New Task"
-        sleep 3
         fill_in "Content", with: task.content
         check "Status"
         check "Important"
