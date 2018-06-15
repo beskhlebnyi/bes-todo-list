@@ -22,18 +22,11 @@ before_script:
   - apt-get update -qq && apt-get install -yqq nodejs libpq-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x xvfb cmake unzip
   - gem install bundler  --no-ri --no-rdoc
   - bundle install -j $(nproc) --path=cache/bundler --without production --jobs $(nproc) "${FLAGS[@]}"
-  - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
-  - unzip ~/chromedriver_linux64.zip -d ~/
-  - rm ~/chromedriver_linux64.zip
-  - mv -f ~/chromedriver /usr/local/share/
-  - chmod +x /usr/local/share/chromedriver
-  - ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 rspec:
   script:
   - RAILS_ENV=test bundle exec rails db:create db:schema:load
   - rspec --version
-  - chromedriver -v
   - RAILS_ENV=test bundle exec rspec
 
 
