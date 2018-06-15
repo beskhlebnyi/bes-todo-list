@@ -12,10 +12,8 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-      within("#mainModal") do
-        fill_in "list_title", with: "some new list"
-        click_button "Create List"
-      end
+      fill_in "list_title", with: "some new list"
+      click_button "Create List"
       visit root_path
     }.to change(List.all, :count).by(1)
     
