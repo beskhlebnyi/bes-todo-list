@@ -12,8 +12,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-      find('#mainModal', :visible => false)
-      fill_in "Title", with: "some new list"
+      find('#mainModal', :visible => false).fill_in "Title", with: "some new list"
       click_button "Create List"
       
       visit root_path
