@@ -18,9 +18,10 @@ rails:
     RAILS_ENV: test
   services:
     - postgres:alpine
+    - justinribeiro/chrome-headless:latest
   script:
   - RAILS_ENV=test bundle exec rails db:create db:schema:load
   - rspec --version
-  - xvfb-run -a bundle exec rspec
+  - RAILS_ENV=test bundle exec rspec
 
 

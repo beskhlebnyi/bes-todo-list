@@ -135,11 +135,10 @@ RSpec.feature "Tasks", type: :feature, js: true do
   scenario "user delete a task" do
     visit root_path
     click_link task.list.title
-    
     within "#task-#{task.id}" do
       click_on class: 'fa-trash'
     end
-    
+    page.driver.browser.switch_to.alert.accept
     click_link task.list.title
     
     expect(page).not_to have_content(task.content)

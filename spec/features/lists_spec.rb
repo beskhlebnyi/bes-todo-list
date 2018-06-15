@@ -102,6 +102,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
     expect {
       click_on class: 'fa-trash'
+      page.driver.browser.switch_to.alert.accept
       visit root_path
     }.to change(List.all, :count).by(-1)
 
