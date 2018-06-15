@@ -12,8 +12,8 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-      
-      within('#mainModal') do
+
+      within('.modal-content') do
         fill_in "Title", with: "some new list"
         click_button "Create List"
       end
