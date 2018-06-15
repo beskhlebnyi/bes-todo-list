@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require bootstrap
 //= require turbolinks
+//= require_tree .
 //= require datetimepicker
 $(document).ready(function() {
   $(".alert").delay(4000).slideUp(200, function() {
