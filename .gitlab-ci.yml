@@ -24,6 +24,7 @@ before_script:
   - bundle install -j $(nproc) --path=cache/bundler --without production --jobs $(nproc) "${FLAGS[@]}"
 
 rspec:
+  <<: *cache_bundler
   script:
   - RAILS_ENV=test bundle exec rails db:create db:schema:load
   - rspec --version
