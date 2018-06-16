@@ -19,7 +19,7 @@ variables:
       - cache/bundler/
 
 before_script:
-  - apt-get update -qq && apt-get install -yqq nodejs libpq-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x xvfb cmake
+  - apt-get update -qq && apt-get install -yqq nodejs libpq-dev qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x xvfb cmake chromium-webdriver
   - gem install bundler  --no-ri --no-rdoc
   - bundle install -j $(nproc) --path=cache/bundler --without production --jobs $(nproc) "${FLAGS[@]}"
 
