@@ -12,7 +12,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.register_driver(:headless_chrome) do |app|
+Capybara.register_driver(:selenium_chrome_headless) do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
     chromeOptions: { args: %w[headless disable-gpu no-sandbox] }
   )
@@ -25,7 +25,7 @@ Capybara.register_driver(:headless_chrome) do |app|
 end
 
 
-Capybara.javascript_driver = :headless_chrome
+Capybara.javascript_driver = :selenium_chrome_headless
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers,  type: :controller
