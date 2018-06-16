@@ -64,9 +64,6 @@ GEM
     capybara-screenshot (1.0.21)
       capybara (>= 1.0, < 4)
       launchy
-    capybara-webkit (1.15.0)
-      capybara (>= 2.3, < 4.0)
-      json
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.2.0)
@@ -119,7 +116,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.6.0)
@@ -289,7 +285,6 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   capybara-screenshot
-  capybara-webkit
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.2)
