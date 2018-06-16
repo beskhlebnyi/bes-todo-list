@@ -12,10 +12,10 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-      find('#mainModal', :visible => false)
-      fill_in "Title", with: "some new list"
-      click_button "Create List"
-      
+      within('.modal-body') do
+        fill_in "list_title", with: "some new list"
+        click_button "Create List"
+      end
       visit root_path
     }.to change(List.all, :count).by(1)
     
@@ -102,6 +102,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
     expect {
       click_on class: 'fa-trash'
+      page.driver.browser.switch_to.alert.accept
       visit root_path
     }.to change(List.all, :count).by(-1)
 
