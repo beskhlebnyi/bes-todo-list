@@ -1,2 +1,6 @@
-tr id="task-#{task.id}"
-  = render 'task_string', task: task
+- if task.status
+  tr.text-line-through  id="task-#{task.id}"
+    = render 'task_string', task: task
+- else
+  tr id="task-#{task.id}"
+    = render 'task_string', task: task

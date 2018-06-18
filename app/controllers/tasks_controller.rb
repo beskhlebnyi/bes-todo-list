@@ -36,6 +36,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    puts "HERE IT IS!!!-----------------------------------"
     @task.assign_attributes(task_params)
     @task.timezone = @client_timezone
     respond_to do |format|
