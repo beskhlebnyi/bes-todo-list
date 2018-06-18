@@ -1,12 +1,7 @@
-- if task.status
-  td 
-    i.fa.fa-check
-- else
-  - if task.important
-    td
-      i.fa.fa-bell
-  - else
-    td
+td 
+  = form_for [@list, task], remote: true do |f|
+    = f.check_box :status, id: "status-check-#{@list.id}-#{task.id}"
+
 td = task.content
   
 - unless task.deadline
@@ -17,7 +12,3 @@ td = task.content
 td = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'
 td = link_to '', [@list, task], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
 
-td 
-  = form_for [@list, task], remote: true do |f|
-    .form-group.form-check
-      = f.check_box :status, class: "form-check-input", id: "status-check-#{@list.id}-#{task.id}"
