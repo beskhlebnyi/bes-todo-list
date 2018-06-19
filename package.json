@@ -1,5 +1,5 @@
 {
   "name": "template_project",
   "private": true,
-  "dependencies": {"uglify-js": "true"}
+  "dependencies": {}
 }
