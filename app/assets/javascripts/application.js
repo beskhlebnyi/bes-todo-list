@@ -17,9 +17,36 @@
 //= require turbolinks
 //= require_tree .
 //= require datetimepicker
+
+
 $(document).ready(function() {
   $(".alert").delay(4000).slideUp(200, function() {
     $(this).alert('close');
   });
+
+  $(document).on('click','input[id^="status-check-"]', {} ,function(e) {
+    var list_id = $(this).attr('id').split("-")[2]
+    var task_id = $(this).attr('id').split("-")[3]
+    
+    if($(this).is(':checked')) {
+      console.log($(this).attr('id').split("-")[2] + "- CHECKED");
+      $(this).css({'display': 'none'});
+
+      $.post( `/lists/${list_id}/tasks/${task_id}`, {
+        '_method': 'PATCH',
+        'task': { 'status': '1' }
+      });
+    } else {
+      console.log($(this).attr('id').split("-")[2] + "- UNCHECKED");
+      $(this).css({'display': 'none'});
+
+      $.post( `/lists/${list_id}/tasks/${task_id}`, {
+        '_method': 'PATCH',
+        'task': { 'status': '0' }
+      });
+    }
+  })
 });
+
+
 
