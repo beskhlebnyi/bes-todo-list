@@ -30,7 +30,6 @@ gem 'sidekiq-scheduler'
 gem 'geocoder'
 gem 'timezone'
 gem 'figaro'
-gem 'webpacker'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
