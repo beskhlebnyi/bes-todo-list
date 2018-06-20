@@ -31,14 +31,17 @@ $(document).ready(function() {
     if($(this).is(':checked')) {
       console.log($(this).attr('id').split("-")[2] + "- CHECKED");
       $(this).css({'display': 'none'});
+      $(this).after('<span class="fa fa-spinner fa-spin fa-sm"></span>');
 
       $.post( `/lists/${list_id}/tasks/${task_id}`, {
         '_method': 'PATCH',
         'task': { 'status': '1' }
       });
+
     } else {
       console.log($(this).attr('id').split("-")[2] + "- UNCHECKED");
       $(this).css({'display': 'none'});
+      $(this).after('<span class="fa fa-spinner fa-spin fa-sm"></span>');
 
       $.post( `/lists/${list_id}/tasks/${task_id}`, {
         '_method': 'PATCH',

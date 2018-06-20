@@ -1,6 +1,6 @@
 td 
   = form_for [@list, task], remote: true do |f|
-    = f.check_box :status, id: "status-check-#{@list.id}-#{task.id}"
+    = f.check_box :status, id: "status-check-#{@list.id}-#{task.id}", class: "check"
 
 td = task.content
   
