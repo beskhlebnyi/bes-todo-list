@@ -24,6 +24,12 @@ $(document).ready(function() {
     $(this).alert('close');
   });
 
+  $('#dateIniPick').datetimepicker({
+    format: 'DD/MM/YYYY',
+    ignoreReadonly: true,
+    allowInputToggle: true
+  });
+
   $(document).on('click','input[id^="status-check-"]', {} ,function(e) {
     var list_id = $(this).attr('id').split("-")[2]
     var task_id = $(this).attr('id').split("-")[3]
