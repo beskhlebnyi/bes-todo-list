@@ -1,0 +1,13 @@
+.btn-outline-primary.mb-2, .btn-outline-primary{
+  color: $dark-blue;
+  border-color: $dark-blue;
+
+  &:hover{
+    border-color: $dark-blue;
+    background-color: $dark-blue; 
+  }
+
+  &:focus{
+    box-shadow: 0 0 0 0.2rem $light-blue;
+  }
+}
