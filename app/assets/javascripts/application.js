@@ -24,7 +24,7 @@ $(document).ready(function() {
     $(this).alert('close');
   });
 
-  $('#dateIniPick').datetimepicker({
+  $('.datetimepicker').datetimepicker({
     format: 'DD/MM/YYYY',
     ignoreReadonly: true,
     allowInputToggle: true
