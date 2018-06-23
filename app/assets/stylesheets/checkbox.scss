@@ -30,14 +30,17 @@
   border-color: $dark-blue;
 }
 .radio:after{ border-radius: 50%; }
+
 .check:checked:after, .radio:checked:after {
-  background-color: $dark-blue;
+  background-color: $light-blue;
   background-position: 0 0;
 }
+
 .check:hover:after, .radio:hover:after{
   background-color: $light-blue;
 }
 
 .check:checked:hover:after, .radio:checked:hover:after{
-  border-color: $light-blue;
+  border-color: $dark-blue;
+  background-color: white;
 }
