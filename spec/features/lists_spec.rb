@@ -14,7 +14,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       click_link "New List"
       within('.modal-body') do
         fill_in "list_title", with: "some new list"
-        click_button "Create List"
+        click_button "Save"
       end
       visit root_path
     }.to change(List.all, :count).by(1)
@@ -31,7 +31,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       expect{
         click_link "New List"
         fill_in "Title", with: ""
-        click_button "Create List"
+        click_button "Save"
       }.not_to change(List.all, :count)
       
       # TODO: Uncomment this after notice refactor:
@@ -43,7 +43,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       visit root_path
       find("#list-#{list.id}").hover.click_on class: 'fa-edit'
       fill_in "Title", with: ""
-      click_button "Update List"
+      click_button "Save"
       
       expect(list.title).to include(old_title)
 
@@ -60,7 +60,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       expect{
         click_link "New List"
         fill_in "Title", with: "same title"
-        click_button "Create List"
+        click_button "Save"
       }.not_to change(List.all, :count)
 
       # TODO: Uncomment this after notice refactor:
@@ -74,7 +74,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       find("#list-#{list.id}").hover.click_on class: 'fa-edit'
 
       fill_in "Title", with: "same title"
-      click_button "Update List"
+      click_button "Save"
       
       expect(list.title).to include(old_title)
 
@@ -109,7 +109,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     find("#list-#{list.id}").hover.click_on class: 'fa-edit'
     within('#mainModal') do
       fill_in "Title", with: "Edited list"
-      click_button "Update List"
+      click_button "Save"
     end
     # TODO: Uncomment this after notice refactor:
     # expect(page).to have_content "List was successfully updated."
