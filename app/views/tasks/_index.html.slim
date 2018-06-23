@@ -11,4 +11,5 @@ br
            = render 'create', task: task
         .created-task
     .box-footer.clearfix.no-border
-      = link_to ' New Task', new_list_task_path, remote: true, class: 'fa fa-plus'
+      span.fa.fa-plus
+      = link_to ' New Task', new_list_task_path, remote: true
