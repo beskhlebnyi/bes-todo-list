@@ -52,11 +52,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
   
       expect {
         click_link task.list.title
-        
-        within "#task-#{task.id}" do
-          click_on class: 'fa-edit'
-        end
-
+        find("#task-#{task.id}").hover.click_on class: 'fa-edit'
         fill_in "Content", with: ""
         check "Status"
         check "Important"
@@ -96,11 +92,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       old_content = task.content
       visit root_path
       click_link task.list.title
-      
-      within "#task-#{task.id}" do
-        click_on class: 'fa-edit'
-      end
-
+      find("#task-#{task.id}").hover.click_on class: 'fa-edit'
       fill_in "Content", with: "same content"
       check "Status"
       check "Important"
@@ -118,11 +110,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
   scenario "user edit a task" do
     visit root_path
     click_link task.list.title
-    
-    within "#task-#{task.id}" do
-      click_on class: 'fa-edit'
-    end
-    
+    find("#task-#{task.id}").hover.click_on class: 'fa-edit'
     fill_in "Content", with: "some new task"
     check "Status"
     check "Important"
@@ -135,9 +123,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
   scenario "user delete a task" do
     visit root_path
     click_link task.list.title
-    within "#task-#{task.id}" do
-      click_on class: 'fa-trash'
-    end
+    find("#task-#{task.id}").hover.click_on class: 'fa-trash'
     page.driver.browser.switch_to.alert.accept
     click_link task.list.title
     
