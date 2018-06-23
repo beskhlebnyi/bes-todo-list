@@ -1,11 +1,13 @@
-h1 Your lists
-hr
-
-table 
-  tbody class='table-body'
-    - @lists.each do |list|
-        = render 'create', list: list
-    .created-lists
-    
-hr
-= link_to ' New List', new_list_path, remote: true, class:'fa fa-plus'
+br
+  .box.box-aqua
+    .box-header.ui-sortable-handle 
+      i.ion.ion-clipboard
+      h1.box-title Your Lists
+  
+    .box-body
+      ul#lists.todo-list.ui-sortable
+        - @lists.each do |list|
+           = render 'create', list: list
+        .created-lists
+    .box-footer.clearfix.no-border
+      = link_to ' New List', new_list_path, remote: true, class:'fa fa-plus'

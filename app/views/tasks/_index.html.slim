@@ -1,13 +1,14 @@
-h1 Your tasks
-hr
-
-table
-  tbody class='task-table-body'
-    - @tasks.each do |task|
-      = render 'create', task: task
-    .created-task
-
-hr 
-= link_to ' New Task', new_list_task_path(@list), remote: true, class: 'fa fa-plus'
-
-
+br
+  .box.box-aqua
+    .box-header.ui-sortable-handle
+      i.ion.ion-clipboard
+      h1.box-title 
+        = @list.title
+  
+    .box-body
+      ul#tasks.todo-list.ui-sortable
+        - @tasks.each do |task|
+           = render 'create', task: task
+        .created-task
+    .box-footer.clearfix.no-border
+      = link_to ' New Task', new_list_task_path, remote: true, class: 'fa fa-plus'

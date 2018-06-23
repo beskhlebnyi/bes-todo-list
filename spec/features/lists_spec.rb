@@ -41,11 +41,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     scenario "user can't update a list" do
       old_title = list.title
       visit root_path
-
-      within "#list-#{list.id}" do
-        click_on class: 'fa-edit'
-      end
-
+      find("#list-#{list.id}").hover.click_on class: 'fa-edit'
       fill_in "Title", with: ""
       click_button "Update List"
       
@@ -75,10 +71,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       old_title = list.title
       create(:list, title: "same title", user: list.user)
       visit root_path
-
-      within "#list-#{list.id}" do
-        click_on class: 'fa-edit'
-      end
+      find("#list-#{list.id}").hover.click_on class: 'fa-edit'
 
       fill_in "Title", with: "same title"
       click_button "Update List"
@@ -94,14 +87,14 @@ RSpec.feature "Lists", type: :feature, js: true do
     visit root_path
     click_link "Some list"
     
-    expect(page).to have_content "Your tasks"
+    expect(page).to have_content (list.title)
   end
 
   scenario "user delete a list" do
     visit root_path
 
     expect {
-      click_on class: 'fa-trash'
+      find("#list-#{list.id}").hover.click_on class: 'fa-trash'
       page.driver.browser.switch_to.alert.accept
       visit root_path
     }.to change(List.all, :count).by(-1)
@@ -113,7 +106,7 @@ RSpec.feature "Lists", type: :feature, js: true do
 
   scenario "user update a list" do
     visit root_path
-    click_on class: 'fa-edit'
+    find("#list-#{list.id}").hover.click_on class: 'fa-edit'
     within('#mainModal') do
       fill_in "Title", with: "Edited list"
       click_button "Update List"

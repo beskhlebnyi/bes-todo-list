@@ -1,6 +1,6 @@
 - if task.status
-  tr.text-line-through  id="task-#{task.id}"
+  li.text-line-through  id="task-#{task.id}"
     = render 'task_string', task: task
 - else
-  tr id="task-#{task.id}"
+  li id="task-#{task.id}"
     = render 'task_string', task: task
