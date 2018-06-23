@@ -74,7 +74,7 @@ body{
   color: #dd4b39;
 }
 .todo-list>li:hover .tools{
-  display: block;  
+  display: block;
 }
 .no-border {
   border: 0 !important;
@@ -103,4 +103,9 @@ body{
 .fa{
   padding: 3px;
 }
-                                  
+
+
+.tools {
+  display: block;
+  float: right;
+}
