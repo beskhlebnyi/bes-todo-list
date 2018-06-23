@@ -5,8 +5,10 @@
 
 - if task.deadline
   .task-deadline
-    | On: 
-    = task.deadline_argument('%d %b %Y %H:%M')
+    .label.label-danger
+      .fa.fa-clock-o
+      i
+        = " #{task.deadline_argument('%d %b %Y %H:%M')}"
 
 .tools
   = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'

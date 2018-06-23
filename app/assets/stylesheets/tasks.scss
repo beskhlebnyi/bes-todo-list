@@ -1,4 +1,4 @@
-td{
+td {
   color: $light-blue;
   padding-right: 10px;
   font-size: 20px;
@@ -9,10 +9,14 @@ td{
   color: white;
   background: yellowgreen;
   border-radius: 2px;
-  font-size: 15px;
+}
+
+.tasks-index {
+  
 }
 
 .task-content {
+  font-size: 20px;
   display: inline;
   padding: 13px;
   margin: 0 12px;
