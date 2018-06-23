@@ -1,7 +1,6 @@
-td {
-  color: $light-blue;
-  padding-right: 10px;
-  font-size: 20px;
+#tasks {
+  height: 300px;
+  overflow-y: scroll;
 }
 
 .task-deadline {
@@ -9,10 +8,6 @@ td {
   color: white;
   background: yellowgreen;
   border-radius: 2px;
-}
-
-.tasks-index {
-  
 }
 
 .task-content {

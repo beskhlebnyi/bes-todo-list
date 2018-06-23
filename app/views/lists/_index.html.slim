@@ -5,9 +5,9 @@ br
       h1.box-title Your Lists
   
     .box-body
-      ul.todo-list.ui-sortable
-       - @lists.each do |list|
-          = render 'create', list: list
-       .created-lists
+      ul#lists.todo-list.ui-sortable
+        - @lists.each do |list|
+           = render 'create', list: list
+        .created-lists
     .box-footer.clearfix.no-border
       = link_to ' New List', new_list_path, remote: true, class:'fa fa-plus'
