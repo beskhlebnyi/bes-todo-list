@@ -2,7 +2,8 @@ br
   .box.box-aqua
     .box-header.ui-sortable-handle
       i.ion.ion-clipboard
-      h1.box-title Your Tasks
+      h1.box-title 
+        = "Your Tasks in '#{@list.title}' list" 
   
     .box-body
       ul#tasks.todo-list.ui-sortable

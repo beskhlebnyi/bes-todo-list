@@ -3,3 +3,17 @@ td{
   padding-right: 10px;
   font-size: 20px;
 }
+
+.task-deadline {
+  display: inline;
+  color: white;
+  background: yellowgreen;
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.task-content {
+  display: inline;
+  padding: 13px;
+  margin: 0 12px;
+}

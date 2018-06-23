@@ -1,12 +1,12 @@
 = form_for [@list, task], html:{class: 'check-edit'}, remote: true do |f|
   = f.check_box :status, id: "status-check-#{@list.id}-#{task.id}", class: "check"  
   
-= task.content
+.task-content = task.content
 
-- unless task.deadline
-  |
-- else
-  = task.deadline_argument('%d %b %Y %H:%M')
+- if task.deadline
+  .task-deadline
+    | On: 
+    = task.deadline_argument('%d %b %Y %H:%M')
 
 .tools
   = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'
