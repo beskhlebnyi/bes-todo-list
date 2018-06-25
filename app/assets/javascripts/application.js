@@ -20,15 +20,13 @@
 
 
 $(document).ready(function() {
-  $(".alert").delay(4000).slideUp(200, function() {
-    $(this).alert('close');
-  });
 
   $('.datetimepicker').datetimepicker({
     format: 'DD/MM/YYYY',
     ignoreReadonly: true,
     allowInputToggle: true
   });
+
 
   $(document).on('click','input[id^="status-check-"]', {} ,function(e) {
     var list_id = $(this).attr('id').split("-")[2]

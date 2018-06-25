@@ -39,7 +39,7 @@ class ListsController < ApplicationController
         format.js
         format.json { render :show, status: :created, location: @list }
       else
-        @notice = get_error(@list)
+        set_flash_error(@list)
         format.js { render 'shared/notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
@@ -52,7 +52,7 @@ class ListsController < ApplicationController
         format.js
         format.json { render :show, status: :ok, location: @list }
       else
-        @notice = get_error(@list)
+        set_flash_error(@list)
         format.js { render 'shared/notice.js.erb' }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end

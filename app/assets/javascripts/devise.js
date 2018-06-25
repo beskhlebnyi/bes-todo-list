@@ -10,4 +10,8 @@ $(document).on('turbolinks:load', function() {
   $(".disapear").click(function () {
     $(".login-box").hide();
   });
+
+  $(".alert").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
+  });
 });
