@@ -28,7 +28,7 @@ class TasksController < ApplicationController
         format.js
         format.json { render :show, status: :created, location: @task }
       else
-        @notice = get_error(@task)
+        set_flash_error(@task)
         format.js { render 'shared/notice.js.erb' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
         format.js
         format.json { render :show, status: :ok, location: @task }
       else
-        @notice = get_error(@task)
+        set_flash_error(@task)
         format.js { render 'shared/notice.js.erb' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
