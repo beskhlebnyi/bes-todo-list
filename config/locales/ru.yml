@@ -16,3 +16,6 @@ ru:
           attributes:
             content:   
               blank: "не может быть пустым"
+  brand: "Тудун Брэнд"
+  edit_account: "Изменить профиль"
+  sign_out: "Выйти"

@@ -1,2 +1,4 @@
 en:
-  hello: "Hello world"
+  brand: "Todon brand"
+  edit_account: "Change my account"
+  sign_out: "Sign out"
