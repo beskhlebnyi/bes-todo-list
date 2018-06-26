@@ -1,8 +1,18 @@
 ru:
   activerecord:
+    attributes: 
+      list:
+        title: "Название"
+      task:
+        content: "Контент"
     errors:
       models:
         list:
           attributes:
             title:   
+              blank: "не может быть пустым"
+              taken: "уже используется"
+        task:
+          attributes:
+            content:   
               blank: "не может быть пустым"
