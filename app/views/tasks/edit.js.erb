@@ -1,5 +1,5 @@
 $('#mainModal').modal('show');
-$('.modal-title').html('Edit task');
+$('.modal-title').html("<%= t(:edit_task) %>");
 $('.form').html("<%= j (render 'tasks/edit') %>");
 
 date = new Date();
