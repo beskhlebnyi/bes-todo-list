@@ -27,7 +27,10 @@ ru:
             current_password:
               blank: "не может быть пустым"
             password:
+              blank: "не может быть пустым"
               too_short: "слишком короткий"
+            email:
+              blank: "не может быть пустым"
   brand: "Тудун Брэнд"
   edit_account: "Изменить профиль"
   sign_out: "Выйти"
