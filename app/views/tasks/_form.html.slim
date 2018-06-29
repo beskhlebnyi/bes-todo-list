@@ -14,10 +14,10 @@
           .form-inline
             = f.check_box :status, class: 'form-check-input'
             br
-            = f.label t(:status), class: 'form-check-label'
+            = f.label t(:status), class: 'form-check-label', id: 'status-checkbox'
           
         .form-group.form-check
           .form-inline
             = f.check_box :important, class: 'form-check-input'
             br
-            = f.label t(:important), class: 'form-check-label'
+            = f.label t(:important), class: 'form-check-label', id: 'important-checkbox'
