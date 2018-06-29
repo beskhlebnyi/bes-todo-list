@@ -48,3 +48,5 @@ ru:
   back: "Назад"
   sign_up: "Регистрация"
   log_in: "Вход"
+  remember_me: "Запомнить меня"
+  forgot_password: "Забыли пароль?"
