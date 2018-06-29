@@ -5,6 +5,10 @@ ru:
         title: "Название"
       task:
         content: "Контент"
+      user:
+        current_password: "Текущий пароль"
+        password_confirmation: "Подтверждение пароля"
+        password: "Пароль"
     errors:
       models:
         list:
@@ -16,6 +20,14 @@ ru:
           attributes:
             content:   
               blank: "не может быть пустым"
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "не совпадает с паролем" 
+            current_password:
+              blank: "не может быть пустым"
+            password:
+              too_short: "слишком короткий"
   brand: "Тудун Брэнд"
   edit_account: "Изменить профиль"
   sign_out: "Выйти"
