@@ -14,4 +14,10 @@ en:
   edit_task: "Edit Task"
   list_title: "List Title"
   edit_list: "Edit List"
-
+  edit_user: "Edit User"
+  minimum_lenght: "6 characters minimum"
+  back: "Back"
+  sign_up: "Sign up"
+  log_in: "Log in"
+  remember_me: "Remember me"
+  forgot_password: "Forgot your password?"

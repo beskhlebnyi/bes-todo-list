@@ -5,6 +5,10 @@ ru:
         title: "Название"
       task:
         content: "Контент"
+      user:
+        current_password: "Текущий пароль"
+        password_confirmation: "Подтверждение пароля"
+        password: "Пароль"
     errors:
       models:
         list:
@@ -15,6 +19,17 @@ ru:
         task:
           attributes:
             content:   
+              blank: "не может быть пустым"
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "не совпадает с паролем" 
+            current_password:
+              blank: "не может быть пустым"
+            password:
+              blank: "не может быть пустым"
+              too_short: "слишком короткий"
+            email:
               blank: "не может быть пустым"
   brand: "Тудун Брэнд"
   edit_account: "Изменить профиль"
@@ -31,3 +46,10 @@ ru:
   edit_task: "Редактировать Задание"
   list_title: "Название Списка"
   edit_list: "Редактировать Список"
+  edit_user: "Изменить"
+  minimum_lenght: "минимум 6 символов"
+  back: "Назад"
+  sign_up: "Регистрация"
+  log_in: "Вход"
+  remember_me: "Запомнить меня"
+  forgot_password: "Забыли пароль?"
