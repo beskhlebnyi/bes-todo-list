@@ -14,4 +14,6 @@ en:
   edit_task: "Edit Task"
   list_title: "List Title"
   edit_list: "Edit List"
-
+  edit_user: "Edit User"
+  minimum_lenght: "6 characters minimum"
+  back: "Back"
