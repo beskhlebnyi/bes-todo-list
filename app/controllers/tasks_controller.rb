@@ -79,7 +79,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:content, :status, :important, :deadline, :list_id)
+      params.require(:task).permit(:content, :status, :important, :deadline, :file, :list_id)
     end
 
     def timezone_connection_problems

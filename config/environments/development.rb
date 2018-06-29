@@ -62,4 +62,6 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true
+
+  config.active_storage.service = :local
 end

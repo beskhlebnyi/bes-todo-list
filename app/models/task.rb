@@ -1,11 +1,12 @@
 class Task < ApplicationRecord
   belongs_to :list
+  has_one_attached :file
+
   validates  :content, presence: true
 
   def deadline_soon?
     if self.deadline && self.important
-      task_deadline = utc_client_deadline
-      task_deadline <= Time.current.utc + 2.hours
+      utc_client_deadline <= Time.current.utc + 2.hours
     else
       false
     end

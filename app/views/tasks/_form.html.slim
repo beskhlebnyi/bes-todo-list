@@ -4,20 +4,15 @@
       .form-group.mx-sm-3.mb-2
         = f.label :content, class: 'sr-only'
         = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
+    
       = f.button t(:save), class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
     .form-check.form-check-inline
-        .form-group.mx-sm-3.mb-2
-          = f.label :deadline, class: 'sr-only'
-          = f.text_field :deadline, class: 'datetimepicker form-control', placeholder: t(:task_deadline), readonly: 'true' 
-          
-        .form-group.form-check
-          .form-inline
-            = f.check_box :status, class: 'form-check-input'
-            br
-            = f.label t(:status), class: 'form-check-label', id: 'status-checkbox'
-          
-        .form-group.form-check
-          .form-inline
-            = f.check_box :important, class: 'form-check-input'
-            br
-            = f.label t(:important), class: 'form-check-label', id: 'important-checkbox'
+      .form-group.mx-sm-3.mb-2
+        = f.label :file, class: 'sr-only'
+        = f.file_field :file, class: 'form-control'
+        
+      .form-group.form-check
+        .form-inline
+          = f.check_box :important, class: 'form-check-input'
+          br
+          = f.label t(:important), class: 'form-check-label', id: 'important-checkbox'
