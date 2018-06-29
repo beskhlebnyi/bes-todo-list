@@ -46,3 +46,5 @@ ru:
   edit_user: "Изменить"
   minimum_lenght: "минимум 6 символов"
   back: "Назад"
+  sign_up: "Регистрация"
+  log_in: "Вход"
