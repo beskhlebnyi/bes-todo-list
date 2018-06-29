@@ -48,4 +48,4 @@
         .form-group.mx-sm-3.mb-2
           = link_to "Back", :back, class: "disapear"
 
-- resource.errors.full_messages.each { |error| flash[:alert] = error }
+- flash[:alert] = resource.errors.full_messages
