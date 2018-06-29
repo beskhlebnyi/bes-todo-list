@@ -5,7 +5,7 @@
 
   - if flash[:error].present?
     .alert.alert-warning role='alert'
-      = flash[:error]
+      = flash[:error].join("<br>").html_safe
 
   - if flash[:alert].present?
     .alert.alert-warning role='alert'
