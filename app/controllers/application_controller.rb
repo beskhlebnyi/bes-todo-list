@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     object.errors.full_messages.each { |error| flash.now[:error] = error }
   end
 
-  def default_url_options
-    { locale: I18n.locale }
+  def self.default_url_options(options={})
+    options.merge({ :locale => I18n.locale })
   end
 
 end
