@@ -22,8 +22,15 @@
 
   .row.justify-content-md-center
     .row
-      .col
+      .col-md-2
         - unless I18n.locale == I18n.default_locale
           = link_to "English", { locale: 'en' }
         - else
           = link_to "Russian", { locale: 'ru' }
+      .col-md-4
+        = form_tag('search/index', method: :get, remote: true) do
+          = text_field_tag :email
+          = submit_tag 'Search', name: nil
+        
+      .col-md-6
+        #search-results

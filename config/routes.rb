@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :tasks
     end
 
+    get 'search/index'
+
     root to: 'lists#main_page'
   end
 end
