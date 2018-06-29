@@ -16,8 +16,8 @@ RSpec.feature "Tasks", type: :feature, js: true do
       click_link "New Task"
       fill_in "Content", with: "some task"
       fill_in "Deadline",	with: "#{DateTime.tomorrow}"
-      check "Status"
-      check "Important"
+      find(:css, "#status-checkbox").set(true)
+      find(:css, "#important-checkbox").set(true)
       click_button "Save"
       sleep 3
       visit root_path
@@ -36,8 +36,8 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         click_link "New Task"
         fill_in "Content", with: ""
-        check "Status"
-        check "Important"
+        find(:css, "#status-checkbox").set(true)
+        find(:css, "#important-checkbox").set(true)
         click_button "Save"
       }.not_to change(Task.all, :count)
 
@@ -54,8 +54,8 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         find("#task-#{task.id}").hover.click_on class: 'fa-edit'
         fill_in "Content", with: ""
-        check "Status"
-        check "Important"
+        find(:css, "#status-checkbox").set(true)
+        find(:css, "#important-checkbox").set(true)
         click_button "Save"
       }.to_not change(Task.all, :count)
       
@@ -73,8 +73,8 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         click_link "New Task"
         fill_in "Content", with: task.content
-        check "Status"
-        check "Important"
+        find(:css, "#status-checkbox").set(true)
+        find(:css, "#important-checkbox").set(true)
         click_button "Save"
       }.not_to change(Task.all, :count)
       
@@ -87,24 +87,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
       # expect(page).to have_content("Content has already been taken")
     end
 
-    scenario "user can't update a task" do
-      create(:task, content: "same content", list: task.list )
-      old_content = task.content
-      visit root_path
-      click_link task.list.title
-      find("#task-#{task.id}").hover.click_on class: 'fa-edit'
-      fill_in "Content", with: "same content"
-      check "Status"
-      check "Important"
-      click_button "Save"
-      click_button "Close"
-      click_link task.list.title
-
-      expect(task.content).to include(old_content)
-
-      # TODO: Uncomment this after notice refactor:
-      # expect(page).to have_content("Content has already been taken")
-    end
   end
 
   scenario "user edit a task" do
@@ -112,8 +94,8 @@ RSpec.feature "Tasks", type: :feature, js: true do
     click_link task.list.title
     find("#task-#{task.id}").hover.click_on class: 'fa-edit'
     fill_in "Content", with: "some new task"
-    check "Status"
-    check "Important"
+    find(:css, "#status-checkbox").set(true)
+    find(:css, "#important-checkbox").set(true)
     click_button "Save"
     click_link task.list.title
     

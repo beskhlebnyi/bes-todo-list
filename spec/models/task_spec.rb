@@ -11,11 +11,4 @@ RSpec.describe Task, type: :model do
     expect(task.errors[:content]).to include("can't be blank")
   end
 
-  it "is invalid with a duplicate content in one list" do
-    list = create(:list, title: "some title")
-    create(:task, content: "some content", list: list)
-    task = build(:task, content: "some content", list: list)
-    task.valid?
-    expect(task.errors[:content]).to include("has already been taken")
-  end
 end

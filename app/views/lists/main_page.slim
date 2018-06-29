@@ -7,7 +7,8 @@
       .modal-header
         h5#mainModalLabel.modal-title
         .right-close-button
-          button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+          button.btn.btn-secondary data-dismiss="modal" type="button" 
+            = t(:close)
       .modal-body
         .form
 
@@ -22,4 +23,7 @@
   .row.justify-content-md-center
     .row
       .col
-        
+        - unless I18n.locale == I18n.default_locale
+          = link_to "English", { locale: 'en' }
+        - else
+          = link_to "Russian", { locale: 'ru' }

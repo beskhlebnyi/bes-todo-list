@@ -2,9 +2,9 @@ nav.navbar.navbar-expand-lg.navbar-light
   button.navbar-toggler aria-controls="navbarToggler" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarToggler" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
   #navbarToggler.collapse.navbar-collapse
-    = link_to 'Todon brand', root_path, class:"navbar-brand"
+    = link_to t(:brand), root_path, class:"navbar-brand"
     ul.navbar-nav.ml-auto.mt-2.mt-lg-0
       li
-        = link_to 'Change my account', edit_user_registration_path, class: "nav-link"
+        = link_to t(:edit_account), edit_user_registration_path, class: "nav-link"
       li
-        = link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link"
+        = link_to t(:sign_out), destroy_user_session_path, method: :delete, class: "nav-link"

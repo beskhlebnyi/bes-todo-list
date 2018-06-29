@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :list
-  validates  :content, presence: true, uniqueness: { scope: :list_id }
+  validates  :content, presence: true
 
   def deadline_soon?
     if self.deadline && self.important
