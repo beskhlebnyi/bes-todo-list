@@ -2,6 +2,6 @@
   box-shadow: 0 0 0 0.2rem $light-blue;
 }
 
-.field_with_errors{
-  background: red;
+.field_with_errors input {
+  box-shadow: 2px 2px 2px red;
 }
