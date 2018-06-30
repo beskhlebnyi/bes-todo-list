@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_list
-  before_action :set_client_timezone, only: [:create, :update]
+  # before_action :set_client_timezone, only: [:create, :update]
   
   rescue_from Timezone::Error::GeoNames, with: :timezone_connection_problems
 
@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
   def create
     @task = @list.tasks.new(task_params)
-    @task.timezone = @client_timezone
+    #@task.timezone = @client_timezone
     respond_to do |format|  
       if @task.save
         format.js
@@ -36,7 +36,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    puts "HERE IT IS!!!-----------------------------------"
     @task.assign_attributes(task_params)
     @task.timezone = @client_timezone
     respond_to do |format|

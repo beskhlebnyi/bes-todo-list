@@ -1,7 +1,7 @@
 - if task.file.attached?
   = link_to '', rails_blob_path(task.file, disposition: "attachment"), class: "fa fa-download"
 
-.task-content = task.content
+.task-content = task.file.filename
 
 //- if task.deadline
   .task-deadline

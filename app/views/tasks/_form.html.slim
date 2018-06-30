@@ -1,17 +1,17 @@
 = form_for [@list, @task], remote: true do |f|
   form
-    .form-inline
+    //.form-inline
       .form-group.mx-sm-3.mb-2
         = f.label :content, class: 'sr-only'
         = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
     
-      = f.button t(:save), class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
     .form-check.form-check-inline
       .form-group.mx-sm-3.mb-2
         = f.label :file, class: 'sr-only'
         = f.file_field :file, class: 'form-control'
+      = f.button t(:save), class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
         
-      .form-group.form-check
+      //.form-group.form-check
         .form-inline
           = f.check_box :important, class: 'form-check-input'
           br
