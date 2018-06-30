@@ -30,5 +30,5 @@ rspec:
   - rspec --version
   - chromedriver -v
 # - xvfb-run -a bundle exec rspec
-
+  - xvbf-run -a bundle exec rspec spec/features/lists_spec.rb
 
