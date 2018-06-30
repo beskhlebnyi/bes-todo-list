@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   # before_action :set_client_timezone, only: [:create, :update]
   
   rescue_from Timezone::Error::GeoNames, with: :timezone_connection_problems
+  rescue_from ActionController::ParameterMissing, with: :empty_file_error
 
   def index
     @tasks = @list.tasks.order(:status, important: :desc)
@@ -84,6 +85,13 @@ class TasksController < ApplicationController
     def timezone_connection_problems
       @notice = "We have some problems with connecton, please try again later."
       respond_to do |format| 
+        format.js { render 'shared/notice.js.erb' }
+      end
+    end
+
+    def empty_file_error
+      flash[:alert] = "File must exist!"
+      respond_to do |format|
         format.js { render 'shared/notice.js.erb' }
       end
     end
