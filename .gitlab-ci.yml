@@ -32,6 +32,4 @@ rspec:
   - RAILS_ENV=test bundle exec rails db:create db:schema:load
   - rspec --version
   - chromedriver -v
-# - xvfb-run -a bundle exec rspec
-  - xvfb-run -a bundle exec rspec spec/features/lists_spec.rb
-
+  - xvfb-run -a bundle exec rspec
