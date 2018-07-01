@@ -5,6 +5,5 @@ $('.form').html("<%= j (render 'tasks/edit') %>");
 date = new Date();
 
 $('.datetimepicker').datetimepicker({
-   minDate:date,
-   minTime:date.getTime()
+   minDate:date
 });

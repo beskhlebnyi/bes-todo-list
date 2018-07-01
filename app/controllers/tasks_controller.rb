@@ -36,7 +36,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    puts "HERE IT IS!!!-----------------------------------"
     @task.assign_attributes(task_params)
     @task.timezone = @client_timezone
     respond_to do |format|
@@ -83,7 +82,7 @@ class TasksController < ApplicationController
     end
 
     def timezone_connection_problems
-      @notice = "We have some problems with connecton, please try again later."
+      flash[:alert] = "We have some problems with connecton, please try again later."
       respond_to do |format| 
         format.js { render 'shared/notice.js.erb' }
       end
