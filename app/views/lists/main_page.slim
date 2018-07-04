@@ -13,12 +13,18 @@
         .form
 
 
+
+.kek
 .container
   .row
-    .col-4
+    #self-lists.col-4
       = render 'index'
+    
+
+    
     .col-8
       .tasks-index
+    
 
   .row.justify-content-md-center
     .row
@@ -46,3 +52,4 @@
                   .form-group.mx-sm-3.mb-2 
                     = text_field_tag :email, '', class: 'form-control'
                   = submit_tag 'Search', name: nil, class: 'btn btn-outline-primary mb-2'
+

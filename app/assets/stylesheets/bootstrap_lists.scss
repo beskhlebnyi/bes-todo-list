@@ -35,6 +35,14 @@ body{
   margin: 2px 0 0 0;
   line-height: 1;
 }
+
+.box-header .right-box-title {
+  display: inline-block;
+  font-size: 22px;
+  right: auto;
+  line-height: 1;
+}
+
 .box-header>.box-tools {
   position: absolute;
   right: 10px;

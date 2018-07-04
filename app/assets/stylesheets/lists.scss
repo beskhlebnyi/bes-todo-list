@@ -1,7 +1,13 @@
+#shared-lists {
+  height: 300px;
+  overflow-y: scroll;
+}
+
 #lists {
   height: 300px;
   overflow-y: scroll;
 }
+
 
 .list-tasks {
   display: none !important;

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     get 'search/index'
-
+    get 'shared_list/index'
     root to: 'lists#main_page'
   end
 end

@@ -9,9 +9,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    respond_to do |format|
-      format.js { render 'list_index.js.erb' }
-    end
+    
   end
 
   def list_tasks

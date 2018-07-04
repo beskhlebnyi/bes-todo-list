@@ -1,10 +1,8 @@
 br
   .box.box-aqua
-    .box-header.ui-sortable-handle 
-      i.ion.ion-clipboard
-      h1.box-title = t(:your_lists)
+    = render 'shared/box_header'
   
-    .box-body
+    .box-body#self-lists
       ul#lists.todo-list.ui-sortable
         - @lists.each do |list|
            = render 'create', list: list
