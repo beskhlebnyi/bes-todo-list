@@ -34,22 +34,5 @@
         - else
           = link_to "Russian", { locale: 'ru' }
       .col
-        .box.box-aqua
-          .box-header.ui-sortable-handle
-            i.ion.ion-clipboard
-            h1.box-title style="display: inline;"
-              span.fa.fa-search 
-              |  Search
-
-          .box-body
-            ul#tasks.todo-list.ui-sortable
-              #search-results
-
-          .box-footer.clearfix.no-border
-            = form_tag('search/index', method: :get, remote: true) do
-              form
-                .form-inline
-                  .form-group.mx-sm-3.mb-2 
-                    = text_field_tag :email, '', class: 'form-control'
-                  = submit_tag 'Search', name: nil, class: 'btn btn-outline-primary mb-2'
+        
 
