@@ -1,14 +1,15 @@
 .list-edit-modal style="height: 450px;"
   = form_for @list, remote: true do |f|
     form
+      #list-form
       .form-inline
         .form-group.mx-sm-3.mb-2
           = f.label :title, class: 'sr-only'
           = f.text_field :title, class: 'form-control', placeholder: t(:list_title)
 
         = f.button t(:save), class: 'btn btn-outline-primary mb-2'
-
-  br
+        
+    br
 
   .box.box-search
     .box-header.ui-sortable-handle
@@ -16,10 +17,9 @@
       h1.box-title style="display: inline;"
         span.fa.fa-search 
         |  Share list with users:
-
+  
     .box-body style="height: 150px; overflow-y: scroll;"
-      ul
-        #chosen-users
+      #chosen-users
 
     .box-footer.clearfix.no-border
       .fa.fa-trash
