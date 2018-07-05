@@ -26,5 +26,5 @@
 /config/application.yml
 /config/database.yml
 
-# Ignore ActiveStorage folder
+# Ignore ActiveStorage files folder
 /storage

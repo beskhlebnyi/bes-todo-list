@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_flash_error(object)
-    flash[:errors] = object.errors.full_messages
+    flash[:error] = object.errors.full_messages
   end
 
   def self.default_url_options(options={})

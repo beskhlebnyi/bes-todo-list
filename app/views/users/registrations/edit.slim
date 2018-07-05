@@ -2,9 +2,8 @@
   .row
     .col.login-box
       .login-box-header
-        h2
-          |Edit 
-          = resource_name.to_s.humanize
+        h2 
+          = t(:edit_user)
 
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
 
@@ -25,7 +24,7 @@
           - if @minimum_password_length
             br
             small
-              em = "#{@minimum_password_length} characters minimum" 
+              em = t(:minimum_lenght)
 
         br
 
@@ -43,9 +42,9 @@
 
         .actions.form-group.mx-sm-3.mb-2
           br
-          = f.submit 'Update', class:'btn btn-outline-primary mb-2 submit-login'
+          = f.submit t(:save), class:'btn btn-outline-primary mb-2 submit-login'
 
         .form-group.mx-sm-3.mb-2
-          = link_to "Back", :back, class: "disapear"
+          = link_to t(:back), root_path, class: "disapear"
 
 - flash[:error] = resource.errors.full_messages
