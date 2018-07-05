@@ -34,6 +34,19 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     respond_to do |format|
       if @list.save
+        if params[:shared_user_ids]
+          user_ids = params[:shared_user_ids]
+          
+          User.all.each do |user|
+            if user_ids.include?(user.id.to_s)
+              shared_list = SharedList.new
+              shared_list.user = user
+              shared_list.list = @list
+              shared_list.save
+            end
+          end
+        end
+
         format.js
         format.json { render :show, status: :created, location: @list }
       else
@@ -47,6 +60,19 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
+        if params[:shared_user_ids]
+          user_ids = params[:shared_user_ids]
+          
+          User.all.each do |user|
+            if user_ids.include?(user.id.to_s)
+              shared_list = SharedList.new
+              shared_list.user = user
+              shared_list.list = @list
+              shared_list.save
+            end
+          end
+        end
+
         format.js
         format.json { render :show, status: :ok, location: @list }
       else
