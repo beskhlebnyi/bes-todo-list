@@ -2,7 +2,6 @@ image: "ruby:2.5.0"
 
 services:
   - postgres:alpine
-  - justinribeiro/chrome-headless:latest
 
 variables:
   POSTGRES_USER: test
