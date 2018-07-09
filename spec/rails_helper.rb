@@ -14,7 +14,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.register_driver(:selenium_chrome_headless) do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage] }
+    chromeOptions: { args: %w[headless disable-gpu] }
   )
  
   Capybara::Selenium::Driver.new(
