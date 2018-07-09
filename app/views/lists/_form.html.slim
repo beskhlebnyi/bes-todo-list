@@ -1,41 +1,22 @@
-.list-edit-modal style="height: 450px;"
+.list-edit-modal style="height: 510px; overflow-y: scroll;"
   = form_for @list, remote: true do |f|
     form
       #list-form
-      .form-inline
+      .form-inline.
         .form-group.mx-sm-3.mb-2
           = f.label :title, class: 'sr-only'
           = f.text_field :title, class: 'form-control', placeholder: t(:list_title)
-
         = f.button t(:save), class: 'btn btn-outline-primary mb-2'
-        
     br
-
-  .box.box-search
-    .box-header.ui-sortable-handle
-      i.ion.ion-clipboard
-      h1.box-title style="display: inline;"
-        span.fa.fa-search 
-        |  Share list with users:
-  
-    .box-body style="height: 150px; overflow-y: scroll;"
-      #chosen-users
-
-    .box-footer.clearfix.no-border
-      .fa.fa-trash
-      a href="#"  Remove all users
-
   .box.box-search
     .box-header.ui-sortable-handle
       i.ion.ion-clipboard
       h1.box-title style="display: inline;"
         span.fa.fa-search 
         |  Search:
-
-    .box-body style="height: 150px; overflow-y: scroll;"
+    .box-body style="height: 100px; overflow-y: scroll;"
       ul
         #search-results
-
     .box-footer.clearfix.no-border
       = form_tag('search/index', method: :get, remote: true) do
         form
@@ -43,3 +24,14 @@
             .form-group.mx-sm-3.mb-2 
               = text_field_tag :email, '', class: 'form-control'
             = submit_tag 'Search', name: nil, class: 'btn btn-outline-primary mb-2'
+    .box.box-search
+      .box-header.ui-sortable-handle
+        i.ion.ion-clipboard
+        h1.box-title style="display: inline;"
+          span.fa.fa-search 
+          |  Share list with users:
+      .box-body style="height: 100px; overflow-y: scroll;"
+        #chosen-users
+      .box-footer.clearfix.no-border
+        .fa.fa-trash
+        a href="#"  Remove all users
