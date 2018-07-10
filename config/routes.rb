@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       passwords:     'users/passwords',
       registrations: 'users/registrations',
       sessions:      'users/sessions'
+      omniauth_callbacks: 'users/omniauth_callbacks'
     }
 
     resources :lists do
