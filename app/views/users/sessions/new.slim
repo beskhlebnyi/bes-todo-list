@@ -25,5 +25,7 @@
           .actions.mx-sm-3.mb-2
             = f.submit t(:log_in), class:'btn btn-outline-primary mb-2 submit-login'
           
+            = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+
           .mx-sm-3.mb-2
             = render 'users/shared/links'
