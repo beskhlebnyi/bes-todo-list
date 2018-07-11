@@ -22,8 +22,9 @@
               |  
               = f.label t(:remember_me)
 
-          .actions.mx-sm-3.mb-2
-            = f.submit t(:log_in), class:'btn btn-outline-primary mb-2 submit-login'
-          
+          .form-group.mx-sm-3.mb-2
+            = f.submit t(:log_in), class:'btn btn-outline-primary btn-block submit-login'
+            .or          
+            = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-outline-primary btn-block google"            
           .mx-sm-3.mb-2
             = render 'users/shared/links'

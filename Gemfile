@@ -25,11 +25,11 @@ gem 'devise', '~> 4.2'
 gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'sidekiq'
-gem 'letter_opener'
 gem 'sidekiq-scheduler'
 gem 'geocoder'
 gem 'timezone'
 gem 'figaro'
+gem 'omniauth-google-oauth2'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
