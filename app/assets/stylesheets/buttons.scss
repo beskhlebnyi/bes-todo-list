@@ -1,6 +1,7 @@
 .btn-outline-primary.mb-2, .btn-outline-primary{
   color: $dark-blue;
   border-color: $dark-blue;
+  font-size: inherit  !important;
 
   &:hover{
     border-color: $dark-blue;
@@ -9,5 +10,27 @@
 
   &:focus{
     box-shadow: 0 0 0 0.2rem $light-blue;
+  }
+}
+
+.btn-outline-primary.google{
+  border-color: $google-orange;
+  color: $google-orange;
+  
+  &:hover{
+    border-color: $google-orange;
+    background-color: $google-orange;
+  }
+
+  &:focus{
+    box-shadow: 0 0 0 0.2rem lighten($google-orange, 20%);
+    color: white;
+    background-color: $google-orange;
+    border-color: $google-orange;
+  }
+
+  &:active{
+    background-color: $google-orange !important;
+    border-color: $google-orange !important;
   }
 }
