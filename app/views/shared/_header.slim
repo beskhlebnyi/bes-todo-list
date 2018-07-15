@@ -8,5 +8,7 @@ nav.navbar.navbar-expand-lg.navbar-light
       - unless request.env['PATH_INFO'][3..request.env['PATH_INFO'].length] == '/users/edit'
         li
           = link_to t(:edit_account), edit_user_registration_path, class: "nav-link"        
+      - else
+          = link_to t(:edit_account), edit_user_registration_path, class: "nav-link not-active" 
       li
         = link_to t(:sign_out), destroy_user_session_path, method: :delete, class: "nav-link"

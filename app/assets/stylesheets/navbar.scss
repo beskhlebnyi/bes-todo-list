@@ -17,5 +17,13 @@
     &:hover{
       color: #e9e4f0;
     }
+
   }
+
+  .not-active{
+    pointer-events: none;
+    
+    color: $light-blue;    
+  }
+  
 }
