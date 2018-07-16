@@ -15,7 +15,9 @@ body{
   font-family: 'Ubuntu', sans-serif;
   background: linear-gradient(to right, #efefbb, #d4d3dd);
   position: relative;
-
+  max-width: 100%;
+  overflow-x: hidden;
+  
   h1 {
     color:$dark-blue;
   }
@@ -30,8 +32,6 @@ body{
   justify-content: center;
   align-items: center;
   height: 20px;
-
-
 }
 
 .datetimepicker.form-control{

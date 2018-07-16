@@ -15,9 +15,7 @@
           = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder:'example@domain.com'
 
         -if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          div Currently waiting confirmation for: = resource.unconfirmed_email
-
-        br
+          div Currently waiting confirmation for: = resource.unconfirmed_email        
 
         .form-group.mx-sm-3.mb-2
           = f.label :password 
@@ -28,14 +26,10 @@
             small
               em = t(:minimum_lenght)
 
-        br
-
         .form-group.mx-sm-3.mb-2
           = f.label :password_confirmation
           br
           = f.password_field :password_confirmation, autocomplete: 'off'
-
-        br
 
         .form-group.mx-sm-3.mb-2
           = f.label :current_password
