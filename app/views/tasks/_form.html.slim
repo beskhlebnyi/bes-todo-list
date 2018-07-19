@@ -4,6 +4,8 @@
       .form-group.mx-sm-3.mb-2
         = f.label :content, class: 'sr-only'
         = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
+        = f.label :description, class: 'sr-only'
+        = f.text_field :description, class: 'form-control', placeholder: 'Task Description'
       = f.button t(:save), class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
     .form-check.form-check-inline
         .form-group.mx-sm-3.mb-2
