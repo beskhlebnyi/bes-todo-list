@@ -15,6 +15,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       within('.modal-body') do
         fill_in "list_title", with: "some new list"
         click_button "Save"
+        
       end
       visit root_path
     }.to change(List.all, :count).by(1)

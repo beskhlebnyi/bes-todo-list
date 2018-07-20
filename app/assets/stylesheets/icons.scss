@@ -9,6 +9,15 @@
     }
   }
 
+  &.fa-question{
+    font-size: x-large;
+    color: $dark-blue;
+
+    &:hover{
+      color: $light-blue;
+    }
+  }
+
   &.fa-trash{
     font-size: x-large;
     color: $dark-blue;

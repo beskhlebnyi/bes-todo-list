@@ -1,23 +1,31 @@
 = form_for [@list, @task], remote: true do |f|
   form
-    .form-inline
-      .form-group.mx-sm-3.mb-2
-        = f.label :content, class: 'sr-only'
-        = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
-      = f.button t(:save), class: 'btn btn-outline-primary mb-2', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
-    .form-check.form-check-inline
-        .form-group.mx-sm-3.mb-2
+    .mx-auto
+      .form-row      
+        .col-5
+          = f.label :content, class: 'sr-only'
+          = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
+        .col-4  
           = f.label :deadline, class: 'sr-only'
           = f.text_field :deadline, class: 'datetimepicker form-control', placeholder: t(:task_deadline), readonly: 'true' 
-          
-        .form-group.form-check
-          .form-inline
+        .col-3
+          = f.button t(:save), class: 'btn btn-outline-primary mb-2 ', id: 'ok', data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Save" }
+
+    .form-row
+      .col-9
+        = f.label :description, class: 'sr-only'
+        = f.text_area :description, class: 'form-control', placeholder: 'Task Description' 
+      .col-3
+        .form-row   
+          .form-inline        
             = f.check_box :status, class: 'form-check-input'
             br
-            = f.label t(:status), class: 'form-check-label', id: 'status-checkbox'
-          
-        .form-group.form-check
+            = f.label t(:status), class: 'form-check-label', id: 'status-checkbox' 
+        .form-row  
           .form-inline
             = f.check_box :important, class: 'form-check-input'
             br
             = f.label t(:important), class: 'form-check-label', id: 'important-checkbox'
+
+      
+      
