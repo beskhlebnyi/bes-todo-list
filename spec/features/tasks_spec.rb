@@ -19,7 +19,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
       find(:css, "#status-checkbox").set(true)
       find(:css, "#important-checkbox").set(true)
       click_button "Save"
-      sleep 5
       visit root_path
     }.to change(Task.all, :count).by(1)
     
@@ -97,7 +96,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
     find(:css, "#status-checkbox").set(true)
     find(:css, "#important-checkbox").set(true)
     click_button "Save"
-    sleep 5
     click_link task.list.title
     
     expect(page).to have_content("some new task")
