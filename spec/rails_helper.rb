@@ -41,3 +41,4 @@ RSpec.configure do |config|
 end
 
 Capybara.asset_host = 'http://localhost:3000'
+Capybara.default_max_time_wait = 5
