@@ -15,9 +15,9 @@ RSpec.feature "Lists", type: :feature, js: true do
       within('.modal-body') do
         fill_in "list_title", with: "some new list"
         click_button "Save"
-        
       end
       visit root_path
+      find("#list-#{list.id}")
     }.to change(List.all, :count).by(1)
     
     visit root_path
@@ -111,9 +111,9 @@ RSpec.feature "Lists", type: :feature, js: true do
     within('#mainModal') do
       fill_in "Title", with: "Edited list"
       click_button "Save"
+      find("#list-#{list.id}")
     end
-    # TODO: Uncomment this after notice refactor:
-    # expect(page).to have_content "List was successfully updated."
+    
     expect(page).to have_content "Edited list"
   end
 end
