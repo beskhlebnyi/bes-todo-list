@@ -1,16 +1,16 @@
-#files {
+#documents {
   height: 300px;
   overflow-y: scroll;
 }
 
-.file-deadline {
+.document-deadline {
   display: inline;
   color: white;
   background: yellowgreen;
   border-radius: 2px;
 }
 
-.file-content {
+.document-content {
   font-size: 20px;
   display: inline;
   padding: 13px;

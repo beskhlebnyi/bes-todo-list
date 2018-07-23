@@ -1,5 +1,5 @@
 span
-  = link_to list.title, list_files_path(list), remote: true
+  = link_to list.title, list_documents_path(list), remote: true
   .tools
     = link_to '', edit_list_path(list), remote: true, class:'fa fa-edit'
     = link_to '', list, data: { confirm: 'Are you sure?' }, method: :delete, remote: true, class:'fa fa-trash'

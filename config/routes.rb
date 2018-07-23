@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     }
 
     resources :lists do
-      resources :files
+      resources :documents
     end
 
     get 'search/index'

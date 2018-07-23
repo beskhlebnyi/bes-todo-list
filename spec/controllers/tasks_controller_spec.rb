@@ -9,29 +9,29 @@ RSpec.describe DocumentsController, type: :controller, js: true do
   end
 
   describe "#create" do
-    it "creates new file" do
-      file_params = attributes_for(:file)
+    it "creates new document" do
+      document_params = attributes_for(:document)
       expect {
-        post :create, params: { list_id: some_list.id, file: file_params }, xhr: true
-      }.to change(some_list.files, :count).by(1)
+        post :create, params: { list_id: some_list.id, document: document_params }, xhr: true
+      }.to change(some_list.documents, :count).by(1)
     end
   end
 
   describe "#delete" do
-    it "deletes a file" do
-      file = create(:file, list: some_list)
+    it "deletes a document" do
+      document = create(:document, list: some_list)
       expect {
-        delete :destroy, params: { list_id: some_list.id, id: file.id }, xhr: true
-      }.to change(some_list.files, :count).by(-1)
+        delete :destroy, params: { list_id: some_list.id, id: document.id }, xhr: true
+      }.to change(some_list.documents, :count).by(-1)
     end
   end
 
   describe "#update" do
-    it "updates a file" do
-      file = create(:file, list: some_list)
-      file_params = attributes_for(:file, content: "Some new content")
-      post :update, params: { list_id: some_list.id, id: file.id, file: file_params }, xhr: true
-      expect(file.reload.content).to eq "Some new content"
+    it "updates a document" do
+      document = create(:document, list: some_list)
+      document_params = attributes_for(:document, content: "Some new content")
+      post :update, params: { list_id: some_list.id, id: document.id, document: document_params }, xhr: true
+      expect(document.reload.content).to eq "Some new content"
     end
   end
 end

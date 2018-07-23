@@ -1,1 +1,1 @@
-json.partial! "files/file", file: @file
+json.partial! "documents/document", document: @document

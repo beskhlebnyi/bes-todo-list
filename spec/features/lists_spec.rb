@@ -83,7 +83,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     end
   end
 
-  scenario "user show list of files" do
+  scenario "user show list of documents" do
     visit root_path
     click_link "Some list"
     

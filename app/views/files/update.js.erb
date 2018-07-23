@@ -1,10 +1,10 @@
-var file_element = $('#file-<%= @file.id %>');
+var document_element = $('#document-<%= @document.id %>');
 
 $('#mainModal').modal('hide');
-file_element.html('<%= j render 'file_string', file: @file %>').effect('highlight', { color: 'yellow' }, 1500);
+document_element.html('<%= j render 'document_string', document: @document %>').effect('highlight', { color: 'yellow' }, 1500);
 
-<% if @file.status %>
-  file_element.addClass('text-line-through');
+<% if @document.status %>
+  document_element.addClass('text-line-through');
 <% else %>
-  file_element.removeClass('text-line-through');
+  document_element.removeClass('text-line-through');
 <% end %>

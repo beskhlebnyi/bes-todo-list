@@ -1,11 +1,11 @@
 class RemindLetterMailer < ApplicationMailer
 
-  def remind_email(file_id)
-    @file = Document.find(file_id)
+  def remind_email(document_id)
+    @document = Document.find(document_id)
     mail(to: 'beskhlebnyi@gmail.com', subject: 'Amazon SES mail')
     ##TODO
     ##uncomment next line after increase sending limit
-    ##mail(to: @file.list.user.email, subject: 'You have some file to do!')
+    ##mail(to: @document.list.user.email, subject: 'You have some document to do!')
   end
 
 end

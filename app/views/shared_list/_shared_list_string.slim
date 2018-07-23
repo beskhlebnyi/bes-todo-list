@@ -1,4 +1,4 @@
 - current_user.shared_lists.each do |shared_list|
   li id="shared-list-#{shared_list.id}"
     
-    = link_to shared_list.list.title, list_files_path(shared_list.list), remote: true
+    = link_to shared_list.list.title, list_documents_path(shared_list.list), remote: true

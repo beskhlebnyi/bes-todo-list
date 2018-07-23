@@ -1,16 +1,16 @@
-- if file.file.attached?
-  = link_to '', rails_blob_path(file.file, disposition: "attachment"), class: "fa fa-download"
+- if document.file.attached?
+  = link_to '', rails_blob_path(document.file, disposition: "attachment"), class: "fa fa-download"
 
-.file-content = file.file.filename
+.document-content = document.file.filename
 
-//- if file.deadline
-  .file-deadline
+//- if document.deadline
+  .document-deadline
     .label.label-danger
       .fa.fa-clock-o
       i
-        = " #{file.deadline_argument('%d %b %Y %H:%M')}"
+        = " #{document.deadline_argument('%d %b %Y %H:%M')}"
 
 .tools
-  = link_to '', edit_list_file_path(@list, file), remote: true, class: 'fa fa-edit'
-  = link_to '', [@list, file], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
+  = link_to '', edit_list_document_path(@list, document), remote: true, class: 'fa fa-edit'
+  = link_to '', [@list, document], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
   
