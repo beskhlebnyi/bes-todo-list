@@ -68,7 +68,7 @@ class DocumentsController < ApplicationController
     end
 
     def document_params
-      params.require(:document).permit(:document, :list_id)
+      params.require(:document).permit(:file, :list_id)
     end
 
     def empty_document_error
