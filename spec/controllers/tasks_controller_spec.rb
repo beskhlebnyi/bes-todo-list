@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FilesController, type: :controller, js: true do
+RSpec.describe DocumentsController, type: :controller, js: true do
   let(:user) { create(:user) }
   let(:some_list) { create(:list, user: user) }
 

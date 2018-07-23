@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe File, type: :model do
+RSpec.describe Document, type: :model do
   it "has a valid factory" do
     expect(build(:file, :with_list)).to be_valid
   end

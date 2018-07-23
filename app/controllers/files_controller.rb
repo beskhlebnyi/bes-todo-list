@@ -1,4 +1,4 @@
-class FilesController < ApplicationController
+class DocumentsController < ApplicationController
   before_action :set_file, only: [:show, :edit, :update, :destroy]
   before_action :set_list
 
@@ -11,7 +11,7 @@ class FilesController < ApplicationController
   def show; end
 
   def new
-    @file = File.new
+    @file = Document.new
     respond_to(&:js)
   end
 
@@ -51,7 +51,7 @@ class FilesController < ApplicationController
   def destroy
     @file.destroy
     respond_to do |format|
-      # format.html { redirect_to root_path, notice: 'File was successfully destroyed.' }
+      # format.html { redirect_to root_path, notice: 'Document was successfully destroyed.' }
       format.js
       format.json { head :no_content }
     end
@@ -60,7 +60,7 @@ class FilesController < ApplicationController
   private
 
     def set_file
-      @file = File.find(params[:id])
+      @file = Document.find(params[:id])
     end
 
     def set_list
@@ -72,7 +72,7 @@ class FilesController < ApplicationController
     end
 
     def empty_file_error
-      flash[:alert] = "File must exist!"
+      flash[:alert] = "Document must exist!"
       respond_to do |format|
         format.js { render 'shared/notice.js.erb' }
       end

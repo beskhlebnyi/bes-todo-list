@@ -1,2 +1,2 @@
-module FilesHelper
+module DocumentsHelper
 end
