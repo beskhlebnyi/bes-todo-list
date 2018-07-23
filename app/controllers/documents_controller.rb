@@ -35,7 +35,6 @@ class DocumentsController < ApplicationController
 
   def update
     @document.assign_attributes(document_params)
-    @document.timezone = @client_timezone
     respond_to do |format|
       if @document.save
         format.js

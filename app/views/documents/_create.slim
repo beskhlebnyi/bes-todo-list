@@ -1,6 +1,2 @@
-- if file.status
-  li.text-line-through  id="file-#{file.id}"
-    = render 'file_string', file: file
-- else
-  li id="file-#{file.id}"
-    = render 'file_string', file: file
+li id="document-#{document.id}"
+  = render 'document_string', document: document
