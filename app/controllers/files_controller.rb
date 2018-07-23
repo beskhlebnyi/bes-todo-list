@@ -1,13 +1,11 @@
 class FilesController < ApplicationController
   before_action :set_file, only: [:show, :edit, :update, :destroy]
   before_action :set_list
-  # before_action :set_client_timezone, only: [:create, :update]
-  
-  rescue_from Timezone::Error::GeoNames, with: :timezone_connection_problems
+
   rescue_from ActionController::ParameterMissing, with: :empty_file_error
 
   def index
-    @files = @list.files.order(:status, important: :desc)
+    @files = @list.files.all
   end
 
   def show; end
@@ -23,7 +21,6 @@ class FilesController < ApplicationController
 
   def create
     @file = @list.files.new(file_params)
-    #@file.timezone = @client_timezone
     respond_to do |format|  
       if @file.save
         format.js
@@ -61,14 +58,6 @@ class FilesController < ApplicationController
   end
 
   private
-    def set_client_timezone
-      loc = request.location
-      lat, lng = loc.latitude, loc.longitude 
-      lat = 50 if lat == 0
-      lng = 30 if lng == 0
-      
-      @client_timezone = Timezone.lookup(lat, lng).name
-    end
 
     def set_file
       @file = File.find(params[:id])
@@ -79,14 +68,7 @@ class FilesController < ApplicationController
     end
 
     def file_params
-      params.require(:file).permit(:content, :status, :important, :deadline, :file, :list_id)
-    end
-
-    def timezone_connection_problems
-      flash[:alert] = "We have some problems with connecton, please try again later."
-      respond_to do |format| 
-        format.js { render 'shared/notice.js.erb' }
-      end
+      params.require(:file).permit(:file, :list_id)
     end
 
     def empty_file_error
