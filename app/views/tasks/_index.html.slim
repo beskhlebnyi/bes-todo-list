@@ -6,10 +6,10 @@ br
         = @list.title
   
     .box-body
-      ul#tasks.todo-list.ui-sortable
-        - @tasks.each do |task|
-           = render 'create', task: task
-        .created-task
+      ul#files.todo-list.ui-sortable
+        - @files.each do |file|
+           = render 'create', file: file
+        .created-file
     .box-footer.clearfix.no-border
       span.fa.fa-plus
-      = link_to t(:new_task), new_list_task_path, remote: true
+      = link_to t(:new_file), new_list_file_path, remote: true

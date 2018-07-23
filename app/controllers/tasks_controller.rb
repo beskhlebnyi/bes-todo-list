@@ -1,5 +1,5 @@
-class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+class FilesController < ApplicationController
+  before_action :set_file, only: [:show, :edit, :update, :destroy]
   before_action :set_list
   # before_action :set_client_timezone, only: [:create, :update]
   
@@ -7,13 +7,13 @@ class TasksController < ApplicationController
   rescue_from ActionController::ParameterMissing, with: :empty_file_error
 
   def index
-    @tasks = @list.tasks.order(:status, important: :desc)
+    @files = @list.files.order(:status, important: :desc)
   end
 
   def show; end
 
   def new
-    @task = Task.new
+    @file = File.new
     respond_to(&:js)
   end
 
@@ -22,39 +22,39 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = @list.tasks.new(task_params)
-    #@task.timezone = @client_timezone
+    @file = @list.files.new(file_params)
+    #@file.timezone = @client_timezone
     respond_to do |format|  
-      if @task.save
+      if @file.save
         format.js
-        format.json { render :show, status: :created, location: @task }
+        format.json { render :show, status: :created, location: @file }
       else
-        set_flash_error(@task)
+        set_flash_error(@file)
         format.js { render 'shared/notice.js.erb' }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.json { render json: @file.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    @task.assign_attributes(task_params)
-    @task.timezone = @client_timezone
+    @file.assign_attributes(file_params)
+    @file.timezone = @client_timezone
     respond_to do |format|
-      if @task.save
+      if @file.save
         format.js
-        format.json { render :show, status: :ok, location: @task }
+        format.json { render :show, status: :ok, location: @file }
       else
-        set_flash_error(@task)
+        set_flash_error(@file)
         format.js { render 'shared/notice.js.erb' }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.json { render json: @file.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @task.destroy
+    @file.destroy
     respond_to do |format|
-      # format.html { redirect_to root_path, notice: 'Task was successfully destroyed.' }
+      # format.html { redirect_to root_path, notice: 'File was successfully destroyed.' }
       format.js
       format.json { head :no_content }
     end
@@ -70,16 +70,16 @@ class TasksController < ApplicationController
       @client_timezone = Timezone.lookup(lat, lng).name
     end
 
-    def set_task
-      @task = Task.find(params[:id])
+    def set_file
+      @file = File.find(params[:id])
     end
 
     def set_list
       @list = List.find(params[:list_id])
     end
 
-    def task_params
-      params.require(:task).permit(:content, :status, :important, :deadline, :file, :list_id)
+    def file_params
+      params.require(:file).permit(:content, :status, :important, :deadline, :file, :list_id)
     end
 
     def timezone_connection_problems

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :task do
+  factory :file do
     important true
     status true
     deadline Date.tomorrow

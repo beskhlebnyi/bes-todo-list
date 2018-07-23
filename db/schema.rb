@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_154310) do
     t.index ["user_id"], name: "index_shared_lists_on_user_id"
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "files", force: :cascade do |t|
     t.string "content"
     t.boolean "status"
     t.bigint "list_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_07_02_154310) do
     t.boolean "reminded", default: false
     t.datetime "deadline"
     t.string "timezone", default: "UTC"
-    t.index ["list_id"], name: "index_tasks_on_list_id"
+    t.index ["list_id"], name: "index_files_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,5 +88,5 @@ ActiveRecord::Schema.define(version: 2018_07_02_154310) do
   add_foreign_key "lists", "users"
   add_foreign_key "shared_lists", "lists"
   add_foreign_key "shared_lists", "users"
-  add_foreign_key "tasks", "lists"
+  add_foreign_key "files", "lists"
 end

@@ -1,9 +1,9 @@
-= form_for [@list, @task], remote: true do |f|
+= form_for [@list, @file], remote: true do |f|
   form
     //.form-inline
       .form-group.mx-sm-3.mb-2
         = f.label :content, class: 'sr-only'
-        = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
+        = f.text_field :content, class: 'form-control', placeholder: t(:file_content) 
     
     .form-check.form-check-inline
       .form-group.mx-sm-3.mb-2

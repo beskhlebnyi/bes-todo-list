@@ -1,16 +1,16 @@
-#tasks {
+#files {
   height: 300px;
   overflow-y: scroll;
 }
 
-.task-deadline {
+.file-deadline {
   display: inline;
   color: white;
   background: yellowgreen;
   border-radius: 2px;
 }
 
-.task-content {
+.file-content {
   font-size: 20px;
   display: inline;
   padding: 13px;

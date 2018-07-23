@@ -1,5 +1,5 @@
-class AddDeadlineColumnToTasks < ActiveRecord::Migration[5.1]
+class AddDeadlineColumnToFiles < ActiveRecord::Migration[5.1]
   def change
-    add_column :tasks, :deadline, :datetime, null: true
+    add_column :files, :deadline, :datetime, null: true
   end
 end

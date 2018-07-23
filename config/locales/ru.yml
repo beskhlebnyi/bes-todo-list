@@ -3,7 +3,7 @@ ru:
     attributes: 
       list:
         title: "Название"
-      task:
+      file:
         content: "Контент"
       user:
         current_password: "Текущий пароль"
@@ -16,7 +16,7 @@ ru:
             title:   
               blank: "не может быть пустым"
               taken: "уже используется"
-        task:
+        file:
           attributes:
             content:   
               blank: "не может быть пустым"
@@ -36,14 +36,14 @@ ru:
   sign_out: "Выйти"
   your_lists: "Ваши Списки"
   new_list: "Новый Список"
-  new_task: "Новое Задание"
+  new_file: "Новое Задание"
   save: "Сохранить"
   close: "Закрыть"
   status: "Состояние"
   important: "Важное"
-  task_content: "Содержимое Задания"
-  task_deadline: "Дедлайн Задания"
-  edit_task: "Редактировать Задание"
+  file_content: "Содержимое Задания"
+  file_deadline: "Дедлайн Задания"
+  edit_file: "Редактировать Задание"
   list_title: "Название Списка"
   edit_list: "Редактировать Список"
   edit_user: "Изменить"

@@ -2,11 +2,11 @@ class SendRemindMailJob < ApplicationJob
   queue_as :default
 
   def perform
-    Task.all.each do |task|
-      if task.deadline_soon? && !task.reminded
-        RemindLetterMailer.remind_email(task.id).deliver_now
-        task.reminded = true
-        task.save
+    File.all.each do |file|
+      if file.deadline_soon? && !file.reminded
+        RemindLetterMailer.remind_email(file.id).deliver_now
+        file.reminded = true
+        file.save
       end
     end
   end

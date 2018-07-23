@@ -1,6 +1,6 @@
-- if task.status
-  li.text-line-through  id="task-#{task.id}"
-    = render 'task_string', task: task
+- if file.status
+  li.text-line-through  id="file-#{file.id}"
+    = render 'file_string', file: file
 - else
-  li id="task-#{task.id}"
-    = render 'task_string', task: task
+  li id="file-#{file.id}"
+    = render 'file_string', file: file

@@ -1,1 +1,1 @@
-json.array! @tasks, partial: 'tasks/task', as: :task
+json.array! @files, partial: 'files/file', as: :file

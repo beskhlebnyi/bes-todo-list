@@ -1,4 +1,4 @@
-class Task < ApplicationRecord
+class File < ApplicationRecord
   belongs_to :list
   has_one_attached :file
 
@@ -27,4 +27,4 @@ end
 
 ##NOTE
 ## get the timezone offset in hours:
-## Task.last.deadline.strftime('%z')[0..2].to_i 
+## File.last.deadline.strftime('%z')[0..2].to_i 

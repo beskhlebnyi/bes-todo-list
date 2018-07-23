@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_list , only: [:show, :edit, :update, :destroy, :list_tasks]
+  before_action :set_list , only: [:show, :edit, :update, :destroy, :list_files]
   before_action :set_lists, only: [:main_page, :index, :create, :update, :destroy]
   
 
@@ -12,8 +12,8 @@ class ListsController < ApplicationController
     
   end
 
-  def list_tasks
-    @tasks = @list.tasks.all
+  def list_files
+    @files = @list.files.all
     respond_to(&:js)
   end
 

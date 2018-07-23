@@ -30,16 +30,16 @@ $(document).ready(function() {
 
   $(document).on('click','input[id^="status-check-"]', {} ,function(e) {
     var list_id = $(this).attr('id').split("-")[2]
-    var task_id = $(this).attr('id').split("-")[3]
+    var file_id = $(this).attr('id').split("-")[3]
     
     if($(this).is(':checked')) {
       console.log($(this).attr('id').split("-")[2] + "- CHECKED");
       $(this).css({'display': 'none'});
       $(this).after('<span class="fa fa-spinner fa-spin fa-sm"></span>');
 
-      $.post( `/lists/${list_id}/tasks/${task_id}`, {
+      $.post( `/lists/${list_id}/files/${file_id}`, {
         '_method': 'PATCH',
-        'task': { 'status': '1' }
+        'file': { 'status': '1' }
       });
 
     } else {
@@ -47,9 +47,9 @@ $(document).ready(function() {
       $(this).css({'display': 'none'});
       $(this).after('<span class="fa fa-spinner fa-spin fa-sm"></span>');
 
-      $.post( `/lists/${list_id}/tasks/${task_id}`, {
+      $.post( `/lists/${list_id}/files/${file_id}`, {
         '_method': 'PATCH',
-        'task': { 'status': '0' }
+        'file': { 'status': '0' }
       });
     }
   })

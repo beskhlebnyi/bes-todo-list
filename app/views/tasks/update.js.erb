@@ -1,10 +1,10 @@
-var task_element = $('#task-<%= @task.id %>');
+var file_element = $('#file-<%= @file.id %>');
 
 $('#mainModal').modal('hide');
-task_element.html('<%= j render 'task_string', task: @task %>').effect('highlight', { color: 'yellow' }, 1500);
+file_element.html('<%= j render 'file_string', file: @file %>').effect('highlight', { color: 'yellow' }, 1500);
 
-<% if @task.status %>
-  task_element.addClass('text-line-through');
+<% if @file.status %>
+  file_element.addClass('text-line-through');
 <% else %>
-  task_element.removeClass('text-line-through');
+  file_element.removeClass('text-line-through');
 <% end %>

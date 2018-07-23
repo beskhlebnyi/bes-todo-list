@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TasksController, type: :controller, js: true do
+RSpec.describe FilesController, type: :controller, js: true do
   let(:user) { create(:user) }
   let(:some_list) { create(:list, user: user) }
 
@@ -9,29 +9,29 @@ RSpec.describe TasksController, type: :controller, js: true do
   end
 
   describe "#create" do
-    it "creates new task" do
-      task_params = attributes_for(:task)
+    it "creates new file" do
+      file_params = attributes_for(:file)
       expect {
-        post :create, params: { list_id: some_list.id, task: task_params }, xhr: true
-      }.to change(some_list.tasks, :count).by(1)
+        post :create, params: { list_id: some_list.id, file: file_params }, xhr: true
+      }.to change(some_list.files, :count).by(1)
     end
   end
 
   describe "#delete" do
-    it "deletes a task" do
-      task = create(:task, list: some_list)
+    it "deletes a file" do
+      file = create(:file, list: some_list)
       expect {
-        delete :destroy, params: { list_id: some_list.id, id: task.id }, xhr: true
-      }.to change(some_list.tasks, :count).by(-1)
+        delete :destroy, params: { list_id: some_list.id, id: file.id }, xhr: true
+      }.to change(some_list.files, :count).by(-1)
     end
   end
 
   describe "#update" do
-    it "updates a task" do
-      task = create(:task, list: some_list)
-      task_params = attributes_for(:task, content: "Some new content")
-      post :update, params: { list_id: some_list.id, id: task.id, task: task_params }, xhr: true
-      expect(task.reload.content).to eq "Some new content"
+    it "updates a file" do
+      file = create(:file, list: some_list)
+      file_params = attributes_for(:file, content: "Some new content")
+      post :update, params: { list_id: some_list.id, id: file.id, file: file_params }, xhr: true
+      expect(file.reload.content).to eq "Some new content"
     end
   end
 end
