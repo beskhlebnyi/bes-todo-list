@@ -28,3 +28,6 @@
 
 # Ignore ActiveStorage files folder
 /storage
+
+# Ignore simplecov coverage files folder
+/coverage
