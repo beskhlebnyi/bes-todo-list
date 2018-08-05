@@ -30,6 +30,7 @@ gem 'geocoder'
 gem 'timezone'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
+gem 'simplecov', require: false, group: :test
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
