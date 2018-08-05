@@ -30,4 +30,4 @@
 /storage
 
 # Ignore simplecov coverage files folder
-/coverage
+echo "coverage" >> .gitignore
