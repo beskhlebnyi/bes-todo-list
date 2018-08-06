@@ -16,15 +16,30 @@ RSpec.feature "Tasks", type: :feature, js: true do
       click_link "New Task"
       fill_in "Content", with: "some task"
       fill_in "Deadline",	with: "#{DateTime.tomorrow}"
-      find(:css, "#status-checkbox").set(true)
-      find(:css, "#important-checkbox").set(true)
+      find("#status-checkbox").set(true)
+      find("#important-checkbox").set(true)
       click_button "Save"
+      sleep 1
       visit root_path
     }.to change(Task.all, :count).by(1)
     
     click_link task.list.title
 
     expect(page).to have_content("some task")
+  end
+
+  scenario "user edit a task" do
+    visit root_path
+    click_link task.list.title
+    find("#task-#{task.id}").hover.click_on class: 'fa-edit'
+    fill_in "Content", with: "some new task"
+    find("#status-checkbox").set(true)
+    find("#important-checkbox").set(true)
+    click_button "Save"
+    sleep 1
+    click_link task.list.title
+    
+    expect(page).to have_content("some new task")
   end
 
   context "with empty content" do
@@ -86,19 +101,6 @@ RSpec.feature "Tasks", type: :feature, js: true do
       # expect(page).to have_content("Content has already been taken")
     end
 
-  end
-
-  scenario "user edit a task" do
-    visit root_path
-    click_link task.list.title
-    find("#task-#{task.id}").hover.click_on class: 'fa-edit'
-    fill_in "Content", with: "some new task"
-    find(:css, "#status-checkbox").set(true)
-    find(:css, "#important-checkbox").set(true)
-    click_button "Save"
-    click_link task.list.title
-    
-    expect(page).to have_content("some new task")
   end
 
   scenario "user delete a task" do
