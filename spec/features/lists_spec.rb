@@ -13,16 +13,30 @@ RSpec.feature "Lists", type: :feature, js: true do
     expect{
       click_link "New List"
       within('.modal-body') do
-        fill_in "list_title", with: "some new list"
+        fill_in 'list_title' , with: "some new list"
         click_button "Save"
+        sleep 1
       end
       visit root_path
-      find("#list-#{list.id}")
     }.to change(List.all, :count).by(1)
     
     visit root_path
 
     expect(page).to have_content "some new list"
+  end
+
+  scenario "user update a list" do
+    visit root_path
+  
+    find("#list-#{list.id}").hover.click_on class: 'fa-edit'
+    within('.modal-body') do
+      fill_in "list_title", with: "Edited list"
+      click_button "Save"
+      sleep 1
+    end
+    visit root_path
+
+    expect(page).to have_content "Edited list"
   end
 
   context "with a empty title" do
@@ -105,15 +119,4 @@ RSpec.feature "Lists", type: :feature, js: true do
     expect(page).not_to have_content(list.title)
   end
 
-  scenario "user update a list" do
-    visit root_path
-    find("#list-#{list.id}").hover.click_on class: 'fa-edit'
-    within('#mainModal') do
-      fill_in "Title", with: "Edited list"
-      click_button "Save"
-      find("#list-#{list.id}")
-    end
-    
-    expect(page).to have_content "Edited list"
-  end
 end
