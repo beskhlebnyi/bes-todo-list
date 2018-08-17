@@ -87,12 +87,13 @@ Rails.application.configure do
   end
 
   config.action_mailer.smtp_settings = {
-    address: "email-smtp.eu-west-1.amazonaws.com",
+    address: "smtp.sendgrid.net",
     port: 587,
-    user_name: ENV["SES_USER_NAME"],
-    password: ENV["SES_PASSWORD"],
-    authentication: :login,
-    enable_starttls_auto: true
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true,
+    domain: 'bes-todo-list.herokuapp.com'
   }
   
   # Do not dump schema after migrations.

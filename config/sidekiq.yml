@@ -1,5 +1,5 @@
 :concurrency: 2
 :schedule:
   send_remind_mail:
-    every: '1m'
+    every: '20m'
     class: SendRemindMailJob
