@@ -61,15 +61,11 @@ class TasksController < ApplicationController
 
   private
     def set_client_timezone
-      p loc = request.location
+      loc = request.location
       lat, lng = loc.latitude, loc.longitude 
       lat = 50 if lat == nil
       lng = 30 if lng == nil
 
-      p '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-      p lat
-      p lng
-      
       @client_timezone = Timezone.lookup(lat, lng).name
     end
 
