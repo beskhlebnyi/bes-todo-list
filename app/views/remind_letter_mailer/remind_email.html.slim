@@ -1,5 +1,5 @@
 h1 
-  = "Hello #{@task.list.user.email}."
+  = "Hello, #{@task.list.user.email.split('@').first}."
   br
   = "Your task \"#{@task.content}\" having a deadline!"
   br
