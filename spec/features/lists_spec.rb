@@ -14,7 +14,7 @@ RSpec.feature "Lists", type: :feature, js: true do
       click_link "New List"
       fill_in 'list_title' , with: "some new list"
       click_button "Save"
-      sleep 1
+      sleep 3
       visit root_path
     }.to change(List.all, :count).by(1)
     
@@ -29,7 +29,7 @@ RSpec.feature "Lists", type: :feature, js: true do
     find("#list-#{list.id}").hover.click_on class: 'fa-edit'
     fill_in "list_title", with: "Edited list"
     click_button "Save"
-    sleep 1
+    sleep 3
     
     visit root_path
 
