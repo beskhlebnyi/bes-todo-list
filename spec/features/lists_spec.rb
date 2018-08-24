@@ -12,10 +12,8 @@ RSpec.feature "Lists", type: :feature, js: true do
     
     expect{
       click_link "New List"
-      within('.modal-body') do
-        fill_in 'list_title' , with: "some new list"
-        click_button "Save"
-      end
+      fill_in 'list_title' , with: "some new list"
+      click_button "Save"
       sleep 1
       visit root_path
     }.to change(List.all, :count).by(1)
@@ -29,11 +27,10 @@ RSpec.feature "Lists", type: :feature, js: true do
     visit root_path
   
     find("#list-#{list.id}").hover.click_on class: 'fa-edit'
-    within('.modal-body') do
-      fill_in "list_title", with: "Edited list"
-      click_button "Save"
-      sleep 1
-    end
+    fill_in "list_title", with: "Edited list"
+    click_button "Save"
+    sleep 1
+    
     visit root_path
 
     expect(page).to have_content "Edited list"
