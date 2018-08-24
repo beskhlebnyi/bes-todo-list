@@ -37,5 +37,10 @@
 
   &.fa-download{
     font-size: x-large;
+    color: $dark-blue;
+
+    &:hover{
+      color: $light-blue;
+    }
   }
 }
