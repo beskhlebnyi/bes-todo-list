@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :list
+  has_one_attached :document
   validates  :content, presence: true
 
   def deadline_soon?
