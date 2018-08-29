@@ -1,7 +1,7 @@
 var task_element = $('#task-<%= @task.id %>');
 
 $('#mainModal').modal('hide');
-task_element.html('<%= j render 'task_string', task: @task %>').effect('highlight', { color: 'yellow' }, 1500);
+task_element.html('<%= j render 'task_string', task: @task %>');
 
 <% if @task.status %>
   task_element.addClass('text-line-through');
