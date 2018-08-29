@@ -1,7 +1,7 @@
 = form_for [@list, task], html:{class: 'check-edit'}, remote: true do |f|
   = f.check_box :status, id: "status-check-#{@list.id}-#{task.id}", class: "check"  
   
-.task-content = link_to "#{task.content}", '#', remote: true, class:'task-description', "data-toggle" => "popover", 
+.task-content = link_to "#{task.content}", '#', remote: true, class:'task-popover', "data-toggle" => "popover", 
   "title" => "Task Description","data-content" => "#{task.description}", "data-trigger" => "hover"
 
 - if task.deadline
@@ -13,12 +13,13 @@
 
 .tools
   - if task.document.attached?
-    = link_to '', rails_blob_path(task.document, disposition: 'attachment'), class: 'fa fa-download'
+    = link_to '', rails_blob_path(task.document, disposition: 'attachment'), class: 'fa fa-download task-popover',
+    "data-toggle" => "popover", "title" => "Download attachment","data-content" => "#{task.document.filename}", "data-trigger" => "hover"
   = link_to '', edit_list_task_path(@list, task), remote: true, class: 'fa fa-edit'
   = link_to '', [@list, task], data: { confirm: 'Are you sure?' }, remote: true, method: :delete, class: 'fa fa-trash'
 
 javascript:   
-  $('.task-description').popover({
+  $('.task-popover').popover({
     trigger: 'hover'  
   })
   
