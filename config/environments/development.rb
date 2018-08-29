@@ -63,4 +63,7 @@ Rails.application.configure do
     domain: 'localhost:3000'
   }
   config.action_mailer.perform_deliveries = true
+
+  # Store files locally.
+  config.active_storage.service = :local
 end
