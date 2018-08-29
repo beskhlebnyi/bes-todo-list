@@ -1,3 +1,2 @@
 $('#mainModal').modal('hide');
-$('#lists').add(".some-list-<%= @list.id %>").append('<%= j render 'create', list: @list %>');
-$("#list-<%= @list.id %>").effect('highlight', { color: 'yellowgreen' }, 1500);
+$('#lists').append('<%= j render 'create', list: @list %>');
