@@ -4,7 +4,7 @@
       .form-row      
         .col-5
           = f.label :content, class: 'sr-only'
-          = f.text_field :content, class: 'form-control', placeholder: t(:task_content) 
+          = f.text_field :content, class: 'form-control', placeholder: t(:task_content), maxlength: '35'
         .col-4  
           = f.label :deadline, class: 'sr-only'
           = f.text_field :deadline, class: 'datetimepicker form-control', placeholder: t(:task_deadline), readonly: 'true' 
