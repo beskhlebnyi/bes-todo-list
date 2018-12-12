@@ -17,12 +17,25 @@
     &:hover{
       color: #e9e4f0;
     }
+  }
 
+ .dd{
+    color: $light-blue;
+  }
+  
+  .dropdown-menu.show{
+    border: 1px solid $light-blue;
+    background:  #f4f4f4;
+  }
+
+  .dropdown-toggle.nav-link{
+    &:focus{
+      color: $light-blue;
+    }
   }
 
   .not-active{
     pointer-events: none;
-    
     color: $light-blue;    
   }
   
