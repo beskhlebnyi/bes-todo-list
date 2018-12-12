@@ -3,21 +3,21 @@ nav.navbar.navbar-expand-lg.navbar-light
     span.navbar-toggler-icon
   #navbarToggler.collapse.navbar-collapse
     = link_to t(:brand), root_path, class:"navbar-brand"
-  - if user_signed_in?
-    ul.navbar-nav.ml-auto.mt-2.mt-lg-0
-      li
-        - unless I18n.locale == I18n.default_locale
-          = link_to "English", { locale: 'en' }, class: "nav-link"
-        - else
-          = link_to "Russian", { locale: 'ru' }, class: "nav-link"
-      li
-        = link_to "|", "#", remote: true, class: "nav-link not-active"
-          
-        
-      - unless request.env['PATH_INFO'][3..request.env['PATH_INFO'].length] == '/users/edit'
+    - if user_signed_in?
+      ul.navbar-nav.ml-auto.mt-2.mt-lg-0
         li
-          = link_to t(:edit_account), edit_user_registration_path, class: "nav-link"        
-      - else
-          = link_to t(:edit_account), edit_user_registration_path, class: "nav-link not-active" 
-      li
-        = link_to t(:sign_out), destroy_user_session_path, method: :delete, class: "nav-link"
+          - unless I18n.locale == I18n.default_locale
+            = link_to "English", { locale: 'en' }, class: "nav-link"
+          - else
+            = link_to "Russian", { locale: 'ru' }, class: "nav-link"
+        li
+          = link_to "|", "#", remote: true, class: "nav-link not-active"
+
+
+        - unless request.env['PATH_INFO'][3..request.env['PATH_INFO'].length] == '/users/edit'
+          li
+            = link_to t(:edit_account), edit_user_registration_path, class: "nav-link"        
+        - else
+            = link_to t(:edit_account), edit_user_registration_path, class: "nav-link not-active" 
+        li
+          = link_to t(:sign_out), destroy_user_session_path, method: :delete, class: "nav-link"
