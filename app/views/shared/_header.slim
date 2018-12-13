@@ -1,10 +1,9 @@
 nav.navbar.navbar-expand-lg.navbar-light
+  = link_to t(:brand), root_path, class:"navbar-brand"
   button.navbar-toggler aria-controls="navbarToggler" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarToggler" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
   #navbarToggler.collapse.navbar-collapse
-    = link_to t(:brand), root_path, class:"navbar-brand"
-  
-    
+
     - if user_signed_in?
       ul.navbar-nav.ml-auto.mt-2.mt-lg-0
         
