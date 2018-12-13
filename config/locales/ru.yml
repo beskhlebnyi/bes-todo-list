@@ -31,7 +31,7 @@ ru:
               too_short: "слишком короткий"
             email:
               blank: "не может быть пустым"
-  brand: "Тудун Брэнд"
+  brand: "Тудун"
   edit_account: "Изменить профиль"
   sign_out: "Выйти"
   your_lists: "Ваши Списки"
