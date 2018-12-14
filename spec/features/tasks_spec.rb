@@ -16,7 +16,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
       click_link "New Task"
       fill_in "Content", with: "some task"
       fill_in "Deadline",	with: "#{DateTime.tomorrow}"
-      find("#status-checkbox").set(true)
+      #find("#status-checkbox").set(true)
       find("#important-checkbox").set(true)
       click_button "Save"
       sleep 1
@@ -50,7 +50,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         click_link "New Task"
         fill_in "Content", with: ""
-        find(:css, "#status-checkbox").set(true)
+        #find(:css, "#status-checkbox").set(true)
         find(:css, "#important-checkbox").set(true)
         click_button "Save"
       }.not_to change(Task.all, :count)
@@ -87,7 +87,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
         click_link task.list.title
         click_link "New Task"
         fill_in "Content", with: task.content
-        find(:css, "#status-checkbox").set(true)
+        #find(:css, "#status-checkbox").set(true)
         find(:css, "#important-checkbox").set(true)
         click_button "Save"
       }.not_to change(Task.all, :count)
